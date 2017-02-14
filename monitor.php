@@ -25,7 +25,7 @@ foreach($out_file_name as $key=>$value){
 
 print_r($time_name);
 
-
+$flags = false;
 foreach ($time_name as $key=>$value){
 	if ($value > $curr_max){
 		$content = date("Y-m-d H:i:s", $value) . " happen to core of " . $out_file_name[$key];
@@ -33,11 +33,15 @@ foreach ($time_name as $key=>$value){
 		echo $cmd_str . "\n";
 		shell_exec($cmd_str);
 		$curr_max = $value;
+        $false = true;
 	}
 }
 
-$cmd_str = "echo $curr_max > $file_path"."curr.data";
-echo "cmd_str = ". $cmd_str . "\n";
-shell_exec($cmd_str);
+if ($flag){
+    $cmd_str = "echo $curr_max > $file_path"."curr.data";
+    echo "cmd_str = ". $cmd_str . "\n";
+    shell_exec($cmd_str);
+}
+
 
 
