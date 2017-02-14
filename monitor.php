@@ -19,28 +19,28 @@ print_r($out_file_name);
 $time_name = array();
 
 foreach($out_file_name as $key=>$value){
-	$arg_name = explode("-", $value);
-	$time_name[] = $arg_name[6];
+        $arg_name = explode("-", $value);
+        $time_name[] = $arg_name[6];
 }
 
 print_r($time_name);
 
-$flags = false;
+$flag = false;
 foreach ($time_name as $key=>$value){
-	if ($value > $curr_max){
-		$content = date("Y-m-d H:i:s", $value) . " happen to core of " . $out_file_name[$key];
-		$cmd_str = "echo $content |mail -s '程序崩溃'  tolsw@qq.com";
-		echo $cmd_str . "\n";
-		shell_exec($cmd_str);
-		$curr_max = $value;
-        $false = true;
-	}
+        if ($value > $curr_max){
+                $content = date("Y-m-d H:i:s", $value) . " happen to core of " . $out_file_name[$key];
+                $cmd_str = "echo $content |mail -s '程序崩溃'  tolsw@qq.com";
+                echo $cmd_str . "\n";
+                shell_exec($cmd_str);
+                $curr_max = $value;
+                $flag = true;
+        }
 }
 
 if ($flag){
-    $cmd_str = "echo $curr_max > $file_path"."curr.data";
-    echo "cmd_str = ". $cmd_str . "\n";
-    shell_exec($cmd_str);
+        $cmd_str = "echo $curr_max > $file_path"."curr.data";
+        echo "cmd_str = ". $cmd_str . "\n";
+        shell_exec($cmd_str);
 }
 
 
