@@ -2,6 +2,13 @@
  * 程序崩溃邮件告警脚本
  * 
  * crontab配置:  */1 * * * * /usr/bin/php -f /data/core/monitor.php  >> /data/core/monitor.log 2>&1
+ *
+/etc/mail.rc最后配置如下 
+set from=clearluo_work@163.com
+set smtp=smtp.163.com
+set smtp-auth-user=clearluo_work@163.com
+set smtp-auth-password=xxxx
+set smtp-auth-login
  */
 <?php
 
