@@ -9,6 +9,8 @@ set smtp=smtp.163.com
 set smtp-auth-user=clearluo_work@163.com
 set smtp-auth-password=xxxx
 set smtp-auth-login
+
+echo "234234234" |mail -s "program hello"  tolsw@qq.com
  */
 <?php
 
