@@ -33,19 +33,27 @@ function stop() {
 
 case $1 in
 	"start")
+		echo "run start..."
 		stop
 		sleep 2
-		start;;
+		start
+		exit;;
 	"stop")
-		stop;;
+		echo "run stop..."
+		stop
+		exit;;
 	"restart")
+		echo "run restart..."
 		stop
 		sleep 2
-		start;;
+		start
+		exit;;
 	"status")
+		echo "run status..."
 		if [ 0"$PID" = "0" ];then
 			echo "$CURTIME program is not run..."
 		fi
+		exit
 		;;
 	*)
 		echo $0 "$CURTIME start | stop | restart | status"
@@ -53,4 +61,3 @@ case $1 in
 esac
 
 
-#bee run -gendoc=true >> temp.log 2>&1 &
