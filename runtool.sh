@@ -1,5 +1,6 @@
 #!/bin/bash
-#*/1 * * * * /bin/bash -f /root/go/goproject/src/runtool.sh status >> /root/go/goproject/src/crontab.log 2>&1
+#59 23 * * * /bin/bash -f /root/go/goproject/src/runtool.sh stop >> /root/go/goproject/src/crontab.log 2>&1
+#4 0 * * * /bin/bash -f /root/go/goproject/src/runtool.sh start >> /root/go/goproject/src/crontab.log 2>&1
 GOSRC=/root/go/goproject/src/didong
 BIN=didong
 CURTIME=`date +[%Y-%m-%d:%H:%M]`
@@ -35,7 +36,7 @@ case $1 in
 	"start")
 		echo "run start..."
 		stop
-		sleep 2
+		sleep 5
 		start
 		exit;;
 	"stop")
@@ -45,7 +46,7 @@ case $1 in
 	"restart")
 		echo "run restart..."
 		stop
-		sleep 2
+		sleep 5
 		start
 		exit;;
 	"status")

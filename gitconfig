@@ -1,0 +1,12 @@
+[user]
+	name = clearluo
+	email = tolsw@qq.com
+[core]
+	quotepath = false
+	autocrlf = false
+[credential]
+	helper = store
+[alias]
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+[color]
+	ui = true
