@@ -1,21 +1,22 @@
 #!/bin/bash
-#59 23 * * * /bin/bash -f /root/go/goproject/src/runtool.sh stop >> /root/go/goproject/src/crontab.log 2>&1
-#4 0 * * * /bin/bash -f /root/go/goproject/src/runtool.sh start >> /root/go/goproject/src/crontab.log 2>&1
-GOSRC=/root/go/goproject/src/didong
-BIN=didong
+#*/1 * * * * /bin/bash -f /home/didong/go/runtool.sh status >> /home/didong/go/crontab.log 2>&1
+GOPATH=/home/didong/go
+GOSRC=$GOPATH/src/didong
+GOBIN=$GOPATH/bin
+BIN=didong-backend
 CURTIME=`date +[%Y-%m-%d:%H:%M]`
 
-cd $GOSRC
+cd $GOPATH
 if [ $# -ne 1 ]
 	then
-  	echo $CURTIME $0 "start | stop | restart | status"
+  	echo $CURTIME $0 "start | stop | restart | status | monitor"
  	exit
 fi
 PID=`ps -ef | grep $BIN | grep -v grep | awk '{print $2}'`
 echo "$CURTIME current pid:" $PID
 function start() {
 	echo "$CURTIME start..."
-	bee run -gendoc=true >> temp.log 2>&1 &
+	$GOBIN/$BIN >> temp.log 2>&1 &
 	sleep 3
 	NEWPID=`ps -ef | grep $BIN | grep -v grep | awk '{print $2}'`
 	echo "$CURTIME new pid:" $NEWPID
@@ -35,20 +36,31 @@ function stop() {
 case $1 in
 	"start")
 		echo "run start..."
-		stop
-		sleep 5
-		start
-		exit;;
+		if [ 0"$PID" = "0" ];then
+			start
+		else
+			echo "$CURTIME $BIN already run..."
+			stop
+			sleep 3
+			start
+		fi
+		exit
+		;;
 	"stop")
 		echo "run stop..."
 		stop
 		exit;;
 	"restart")
 		echo "run restart..."
-		stop
-		sleep 5
-		start
-		exit;;
+		if [ 0"$PID" = "0" ];then
+			start
+		else
+			stop
+			sleep 3
+			start
+		fi
+		exit
+		;;
 	"status")
 		echo "run status..."
 		if [ 0"$PID" = "0" ];then
@@ -56,8 +68,19 @@ case $1 in
 		fi
 		exit
 		;;
+	"monitor")
+		echo "$CURTIME run monitor..."
+		if [ 0"$PID" = "0" ];then
+			echo "$CURTIME monitor xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+			echo "$CURTIME program is not run..."
+			start
+		else
+			echo "$CURTIME $BIN already run..."
+		fi
+		exit
+		;;
 	*)
-		echo $0 "$CURTIME start | stop | restart | status"
+		echo $0 "$CURTIME start | stop | restart | status | monitor"
 		exit;;
 esac
 
