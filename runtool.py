@@ -3,8 +3,9 @@ import os
 import sys
 import datetime
 import time
-#*/1 * * * * /usr/bin/python -f /home/didong/go/runtool.py monitor >> /home/didong/go/crontab.log 2>&1
+#*/1 * * * * /usr/bin/python /home/didong/go/runtool.py monitor >> /home/didong/go/logs/crontab.log 2>&1
 os.environ["GOPATH"] = "/home/didong/go"
+os.environ["GOLOG"] = os.environ["GOPATH"] + "/logs"
 os.environ["GOSRC"] = os.environ["GOPATH"] + "/src/didong"
 os.environ["GOBIN"] = os.environ["GOPATH"] + "/bin"
 os.environ["BIN"]="didong-backend"
@@ -24,7 +25,7 @@ if len(sys.argv)!=2:
 	exit()
 
 def start():
-	if os.system('$GOBIN/$BIN >> temp.log 2>&1 &') == 0:
+	if os.system('$GOBIN/$BIN >> $GOLOG/temp.log 2>&1 &') == 0:
 		time.sleep(3)
 		newOutPut = os.popen('ps -ef | grep $BIN | grep -v grep | awk \'{print $2}\'')
 		newOutPutStr = newOutPut.read()
