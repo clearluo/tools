@@ -39,7 +39,9 @@ def start():
 			newCurPid = int(newOutPutStr)
 			print(curTime+"程序启动成功,进程ID:",newCurPid)
 		else:
-			print(curTime+"程序启动失败")
+			print(curTime+"程序启动失败1")
+	else:
+			print(curTime+"程序启动失败2")
 def stop():
 	if os.system('kill -9 $CURPID') == 0:
 		print(curTime+"程序停止成功,进程ID:",curPid)
@@ -69,10 +71,10 @@ elif cmd == "status":
 		print(curTime+"当前程序进程ID:",curPid)
 elif cmd == "monitor":
 	if curPid == 0:
-		print(curTime+"监控程序:程序已死,启动程序")
+		print(curTime+"监控程序,程序已死,启动程序")
 		start()
 	else:
-		print(curTime+"监控程序:进程ID:",curPid)
+		print(curTime+"监控程序,进程ID:",curPid)
 else:
 	print(curTime+sys.argv[0]+" start | stop | restart | status | monitor")
 	exit()

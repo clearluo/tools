@@ -35,7 +35,7 @@ if os.system('cd $GOSRC/$MYPROJECT; go build -o ./$BIN'):
 if os.system('./runtool.py stop'):
 	exit()
 
-if os.path.exists(gobin+exebin):
+if os.path.exists(gobin + "/" + exebin):
 	if os.system('mv $GOBIN/$BIN $GOBIN/$BIN.$CURTIME.bak'):
 		exit()
 
