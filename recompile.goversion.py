@@ -28,8 +28,8 @@ if os.system('cd $GOSRC; rz'):
 if os.system('cd $GOSRC; unzip $MYPROJECT.zip'):
 	exit()
 
-if os.system('cd $GOSRC/$MYPROJECT; go build -o ./$BIN'):
-	print('go build err')
+if os.system('cd $GOSRC/$MYPROJECT; make build'):
+	print('make build err')
 	exit()
 
 if os.system('./runtool.py stop'):
