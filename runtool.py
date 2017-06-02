@@ -37,24 +37,24 @@ def start():
 		newCurPid = 0
 		if newOutPutStr != "":
 			newCurPid = int(newOutPutStr)
-			print(curTime+"程序启动成功,进程ID:",newCurPid)
+			print(curTime+"The program start success, PID:",newCurPid)
 		else:
-			print(curTime+"程序启动失败1")
+			print(curTime+"The program start failure 1.")
 	else:
-			print(curTime+"程序启动失败2")
+			print(curTime+"The program start failure 2.")
 def stop():
 	if os.system('kill -9 $CURPID') == 0:
-		print(curTime+"程序停止成功,进程ID:",curPid)
+		print(curTime+"The program stop success, PID:",curPid)
 
 cmd = sys.argv[1]
 if cmd == "start":
 	if curPid == 0:
 		start()
 	else:
-		print(curTime+"程序已经运行,进程ID:",curPid)
+		print(curTime+"The program already running, PID:",curPid)
 elif cmd == "stop":
 	if curPid == 0:
-		print(curTime+"程序没有运行")
+		print(curTime+"The program is not running.")
 	else:
 		stop()
 elif cmd == "restart":
@@ -66,15 +66,15 @@ elif cmd == "restart":
 		start()
 elif cmd == "status":
 	if curPid == 0:
-		print(curTime+"程序没有运行")
+		print(curTime+"The program is not running.")
 	else:
-		print(curTime+"当前程序进程ID:",curPid)
+		print(curTime+"The current program PID:",curPid)
 elif cmd == "monitor":
 	if curPid == 0:
-		print(curTime+"监控程序,程序已死,启动程序")
+		print(curTime+"Monitor program, program dead, start program.")
 		start()
 	else:
-		print(curTime+"监控程序,进程ID:",curPid)
+		print(curTime+"Monitor program, PID:",curPid)
 else:
 	print(curTime+sys.argv[0]+" start | stop | restart | status | monitor")
 	exit()
