@@ -10,6 +10,7 @@ import (
 	"log"
 	"os"
 	"os/exec"
+	"path/filepath"
 	"time"
 )
 
@@ -23,7 +24,7 @@ type Program struct {
 }
 
 func init() {
-	log.SetFlags(log.LstdFlags)
+	log.SetFlags(log.LstdFlags | log.Lshortfile)
 	time.Local = time.FixedZone("CST", 3600*8)
 }
 
@@ -37,7 +38,7 @@ func main() {
 	}
 	if len(os.Args) != 2 {
 		printHelp()
-		os.Exit(0)
+		os.Exit(1)
 	}
 	program.CurPid = program.GetPid()
 	switch os.Args[1] {
@@ -80,7 +81,7 @@ func main() {
 }
 
 func printHelp() {
-	fmt.Println("./xx start | stop | restart | status | monitor")
+	fmt.Println(filepath.Base(os.Args[0]) + " start | stop | restart | status | monitor")
 }
 
 func GetCurTime() string {
@@ -99,7 +100,7 @@ func ExecShell(cmd string) (string, error) {
 	ret, err := exec.Command("bash", "-c", cmd).Output()
 	if err != nil {
 		log.Println(err)
-		os.Exit(0)
+		os.Exit(1)
 		return "", err
 	}
 	return TrimEnd(ret), nil
