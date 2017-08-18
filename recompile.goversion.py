@@ -28,8 +28,12 @@ if os.system('cd $GOSRC; rz'):
 if os.system('cd $GOSRC; unzip $MYPROJECT.zip'):
 	exit()
 
-if os.system('cd $GOSRC/$MYPROJECT; go build -o ./$BIN'):
+if os.system('cd $GOSRC/$MYPROJECT; go build -ldflags \'-w -s\' -o ./$BIN'):
 	print('go build err')
+	exit()
+
+if os.system('cd $GOSRC/$MYPROJECT; upx ./$BIN'):
+	print('pux exe err')
 	exit()
 
 if os.system('./runtool.py stop'):
