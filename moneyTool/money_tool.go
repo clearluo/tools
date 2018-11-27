@@ -6,27 +6,34 @@ import (
 )
 
 func main() {
-	fmt.Printf("总收入：%.2fW\n",Etf300(0.1,30,0.15))
-	fmt.Printf("年化利率：%.2f%%\n",InstallmentCal(14744, 12, 1271.67))
+	Etf(0.2, 0.05, 30, 0.2)
+	fmt.Printf("年化利率：%.2f%%\n", InstallmentCal(16804.6, 6, 2948.65))
 }
 
 /*
- * 功能：每月定存etf300指数基金计划
- * yearRate：每月定存多少W
+ * 功能：每月定存etf指数基金计划
+ * monthMoney：初使每月定存多少W
+ * yearInc：每年总每月投入以多少比例增加
  * yearCount：定存年数30
  * yearRate：平均年化复合收益率0.15
  * 返回值：总收入W
  */
-func Etf300(monthMondy float64,yearCount int,yearRate float64)float64 {
-	var sum float64 = 0          // 总收益
+func Etf(monthMoney float64, yearInc float64, yearCount int, yearRate float64) float64 {
+	var sumBase float64 = 0 // 总本钱
+	var sum float64 = 0     // 总收益
 	for i := 1; i <= yearCount; i++ {
-		//fmt.Printf("第%d年每月存入:%f\n", i, monthMondy)
+		fmt.Printf("第%d年每月存入:%f\n", i, monthMoney)
+		sumBase += (monthMoney * 12)
 		for j := 0; j < 12; j++ {
-			sum += monthMondy
+			sum += monthMoney
+
 			sum = (sum*yearRate)/12 + sum
 		}
-		fmt.Printf("第%d年后总金额:%.2fW\n", i, sum)
+		monthMoney *= (1 + yearInc)
+		//fmt.Printf("第%d年后总金额:%.2fW\n", i, sum)
 	}
+	fmt.Printf("总投入:%.2fW\n", sumBase)
+	fmt.Printf("总收益:%.2fW\n", sum)
 	return sum
 }
 
