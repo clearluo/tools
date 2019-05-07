@@ -6,8 +6,9 @@ import (
 )
 
 func main() {
-	//Etf(0.2, 0.05, 2, 0.20)
-	fmt.Printf("年化利率：%.2f%%\n", InstallmentCal(6313.27, 12, 567.78))
+	Etf(0.2, 0.05, 2, 0.20)
+	//fmt.Println(math.MaxUint64)
+	//fmt.Printf("年化利率：%.2f%%\n", InstallmentCal(200000, 36, 7380))
 }
 
 /*
