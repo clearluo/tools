@@ -1,7 +1,9 @@
 package util
 
 import (
+	"encoding/json"
 	"fmt"
+	"os"
 	"strconv"
 	"strings"
 
@@ -24,6 +26,24 @@ func do_check_table(item map[string]string) {
 	}
 
 	sheet := xlFile.Sheets[0]
+	attrs := []string{"id"}
+
+	for attr1, _ := range item {
+		if attr1[0] == 95 { // _忽略
+			continue
+		}
+		if attr1 == "id" {
+			continue
+		}
+		attrs = append(attrs, attr1)
+
+	}
+	f, err := os.Create("data/" + mtable + ".json")
+
+	f.WriteString("[\r\n")
+	headline1 := strings.Join(attrs, "\",\"")
+	f.WriteString("[\"" + string(headline1) + "\"]")
+
 	// 数据检查
 	for idx, row := range sheet.Rows {
 		cell := row.Cells
@@ -40,12 +60,10 @@ func do_check_table(item map[string]string) {
 			continue
 		}
 
-		mapObj := make(map[string]interface{}, 0)
+		bodyLine := make([]interface{}, 0)
+		for _, attr := range attrs {
+			rule, _ := item[attr]
 
-		for attr, rule := range item {
-			if attr[0] == 95 { // _忽略
-				continue
-			}
 			values := strings.Split(rule, "_")
 
 			if len(values) < 2 {
@@ -62,12 +80,14 @@ func do_check_table(item map[string]string) {
 					fmt.Printf("【%s】属性列【%s】=【%s】不符合规范\n", mtable, attr, rule)
 					myPanic("配置异常")
 				}
-				check_cell(cell, idx, column-1, values[0])
-				if len(cell) >= column {
-					mapObj[attr] = cell[column-1]
-				}
+				mvalue := check_cell(cell, idx, column-1, values[0])
+				bodyLine = append(bodyLine, mvalue)
 			}
 		}
-		checkTabValue(mtable, mapObj)
+		fmt.Println(bodyLine)
+		jsonB, _ := json.Marshal(bodyLine)
+		f.WriteString(",\r\n" + string(jsonB))
 	}
+	f.WriteString("\r\n]")
+	f.Close()
 }
