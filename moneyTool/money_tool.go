@@ -6,17 +6,16 @@ import (
 )
 
 func main() {
-	Etf(0.2, 0.05, 30, 0.15)
-	//fmt.Println(math.MaxUint64)
-	//fmt.Printf("年化利率：%.2f%%\n", InstallmentCal(200000, 36, 7380))
+	Etf(0.2, 0.05, 30, 0.2)
+	// fmt.Printf("年化利率：%.2f%%\n", InstallmentCal(200000, 36, 7380))
 }
 
 /*
- * 功能：每月定存etf指数基金计划
+ * 功能：每月定投股市收益计算
  * monthMoney：初使每月定存多少W
- * yearInc：每年总每月投入以多少比例增加
+ * yearInc：每月投入以多少比例增加(以年为单位递增，如：第一年每月投入1k，以0.05递增,那么第二年每月投入1.05k,第二年每月投入1.1025k)
  * yearCount：定存年数30
- * yearRate：平均年化复合收益率0.15
+ * yearRate：期望平均年化复合收益率0.15
  * 返回值：总收入W
  */
 func Etf(monthMoney float64, yearInc float64, yearCount int, yearRate float64) float64 {
