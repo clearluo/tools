@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	Etf(0.2, 0.05, 30, 0.10)
+	Etf(0.2, 0.05, 30, 0.15)
 	//fmt.Println(math.MaxUint64)
 	//fmt.Printf("年化利率：%.2f%%\n", InstallmentCal(200000, 36, 7380))
 }
@@ -23,16 +23,16 @@ func Etf(monthMoney float64, yearInc float64, yearCount int, yearRate float64) f
 	var sumBase float64 = 0 // 总本钱
 	var sum float64 = 0     // 总收益
 	for i := 1; i <= yearCount; i++ {
-		//fmt.Printf("第%d年每月存入:%f\n", i, monthMoney)
+		//fmt.Printf("第%d年每月存入:%fW\n", i, monthMoney)
 		sumBase += (monthMoney * 12)
-		for j := 0; j < 12; j++ {
+		for j := 1; j <= 12; j++ {
 			sum += monthMoney
-			sum = (sum*yearRate)/12 + sum
-			fmt.Printf("第%d年,第%d个月:%.2fW\n", i,j+1, sum)
+			sum += (sum*yearRate)/12
+			fmt.Printf("第%d年,第%d个月:%.2fW\n", i,j, sum)
 		}
 		monthMoney *= (1 + yearInc)
-		fmt.Printf("第%d年后投入总金额:%.2fW\n", i, sumBase)
-		fmt.Printf("第%d年后总金额:%.2fW\n", i, sum)
+		//fmt.Printf("第%d年后投入总金额:%.2fW\n", i, sumBase)
+		//fmt.Printf("第%d年后总金额:%.2fW\n", i, sum)
 
 	}
 	fmt.Printf("总投入:%.2fW\n", sumBase)
