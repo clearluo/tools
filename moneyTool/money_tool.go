@@ -6,8 +6,19 @@ import (
 )
 
 func main() {
-	Etf(0.2, 0.05, 30, 0.2)
-	// fmt.Printf("年化利率：%.2f%%\n", InstallmentCal(200000, 36, 7380))
+	//Etf(0.2, 0.05, 30, 0.2)
+	//InstallmentCal(200000, 36, 7380)
+	Snowball(1288, 0.15, 29)
+}
+
+// Snowball 计算现在x元在股市未来n年后的价值
+func Snowball(money float64, yearRate float64, yearCount int) float64 {
+	sum := money
+	for i := 0; i < yearCount; i++ {
+		sum *= (1 + yearRate)
+	}
+	fmt.Printf("%.0f元以年化%.0f%%增长在%d年后会变成%.2f万元\n", money, yearRate*100, yearCount, sum/10000)
+	return sum
 }
 
 // Etf 每月定投股市收益计算
@@ -52,8 +63,11 @@ func InstallmentCal(totalMoney float64, monthCount int, monthMoney float64) floa
 		monthX := (totalMoney * monthRate * math.Pow(1+monthRate, float64(monthCount))) /
 			(math.Pow(1+monthRate, float64(monthCount)) - 1)
 		if math.Abs(monthX-monthMoney) < 1 {
-			return rate * 100
+			tmp := rate * 100
+			fmt.Printf("%.2f元,分%d期,每期还%.2f元,年化利率：%.2f%%\n", totalMoney, monthCount, monthMoney, tmp)
+			return tmp
 		}
 	}
+	fmt.Printf("年化利率：%.2f%%\n", 0)
 	return 0
 }
