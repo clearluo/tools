@@ -6,17 +6,50 @@ import (
 )
 
 func main() {
-	//Etf(0.5, 0.05, 10, 0.2589)
-	//InstallmentCal(200000, 36, 7380)
-	//Snowball(27, 0.15, 29)
-	AnnualYield(10000, 100000, 10)
+	//Etf(1, 0.05, 28, 0.15)
+	//InstallmentCal(15000, 12, 1349)
+	//Snowball(54000, 0.15, 28)
+	//AnnualYield(33, 43, 3)
+	arr2016 := []float64{4288, 17088, 32338, 38881, 78121}
+	_ = arr2016
+	arr2017 := []float64{88227, 98984, 81999, 96303, 133686, 134212, 145988, 169710, 193708, 207695, 211575, 256017}
+	_ = arr2017
+	arr2018 := []float64{284512, 300005, 338834, 317781, 322593, 320717, 315315, 303018, 304963, 304653, 290520, 279852}
+	_ = arr2018
+	arr2019 := []float64{279056, 304874, 311967, 331306, 372794, 332894, 359431, 383956, 408794, 439362, 454984, 446994}
+	_ = arr2019
+	total := []float64{}
+	total = append(total, arr2016...)
+	total = append(total, arr2017...)
+	total = append(total, arr2018...)
+	total = append(total, arr2019...)
+	YearRate(arr2019, 150000)
+}
+
+// YearRate 计算年化收益率
+func YearRate(data []float64, profit float64) float64 {
+	var rate float64
+	for rate = -0.5; rate < 1; rate += 0.0001 {
+		monthRate := rate / 12
+		sumProfit := 0.0
+		for _, v := range data {
+			sumProfit += v * monthRate
+		}
+		tmp := math.Abs(sumProfit - profit)
+		if tmp < 10 {
+			fmt.Printf("年化收益率: %.2f%%\n", rate*100)
+			return rate
+		}
+	}
+	fmt.Println("计算错误")
+	return 0
 }
 
 // Snowball 计算现在x元在股市未来n年后的价值
 func Snowball(money float64, yearRate float64, yearCount int) float64 {
 	sum := money
 	for i := 0; i < yearCount; i++ {
-		sum *= (1 + yearRate)
+		sum *= 1 + yearRate
 	}
 	fmt.Printf("%.0f元以年化%.0f%%增长在%d年后会变成%.2f万元\n", money, yearRate*100, yearCount, sum/10000)
 	return sum
@@ -34,7 +67,7 @@ func Etf(monthMoney float64, yearInc float64, yearCount int, yearRate float64) f
 	var sum float64 = 0     // 总收益
 	for i := 1; i <= yearCount; i++ {
 		fmt.Printf("第%d年每月存入:%fW\n", i, monthMoney)
-		sumBase += (monthMoney * 12)
+		sumBase += monthMoney * 12
 		for j := 1; j <= 12; j++ {
 			sum += monthMoney
 			sum += (sum * yearRate) / 12
@@ -80,7 +113,7 @@ func AnnualYield(startMoney float64, endMoney float64, yearCount int) float64 {
 	for ; rate < 1; rate += 0.000001 {
 		endMoneyTmp := startMoney
 		for i := 0; i < yearCount; i++ {
-			endMoneyTmp += (endMoneyTmp * rate)
+			endMoneyTmp += endMoneyTmp * rate
 		}
 		if math.Abs(endMoneyTmp-endMoney)/endMoney < 0.00001 {
 			tmp := rate * 100
