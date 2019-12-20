@@ -6,17 +6,17 @@ import (
 )
 
 func main() {
-	//Etf(0.5, 0.05, 10, 0.2589)
+	//Etf(0.5, 0.05, 30, 0.2989)
 	//InstallmentCal(200000, 36, 7380)
-	//Snowball(27, 0.15, 29)
-	AnnualYield(10000, 100000, 10)
+	Snowball(500000, 0.30, 29)
+	//AnnualYield(1000, 3952, 14)
 }
 
 // Snowball 计算现在x元在股市未来n年后的价值
 func Snowball(money float64, yearRate float64, yearCount int) float64 {
 	sum := money
 	for i := 0; i < yearCount; i++ {
-		sum *= (1 + yearRate)
+		sum *= 1.0 + yearRate
 	}
 	fmt.Printf("%.0f元以年化%.0f%%增长在%d年后会变成%.2f万元\n", money, yearRate*100, yearCount, sum/10000)
 	return sum
@@ -34,13 +34,13 @@ func Etf(monthMoney float64, yearInc float64, yearCount int, yearRate float64) f
 	var sum float64 = 0     // 总收益
 	for i := 1; i <= yearCount; i++ {
 		fmt.Printf("第%d年每月存入:%fW\n", i, monthMoney)
-		sumBase += (monthMoney * 12)
+		sumBase += monthMoney * 12
 		for j := 1; j <= 12; j++ {
 			sum += monthMoney
 			sum += (sum * yearRate) / 12
 			//fmt.Printf("第%d年,第%d个月:%.2fW\n", i, j, sum)
 		}
-		monthMoney *= (1 + yearInc)
+		monthMoney *= 1 + yearInc
 		//fmt.Printf("第%d年后投入总金额:%.2fW\n", i, sumBase)
 		//fmt.Printf("第%d年后总金额:%.2fW\n", i, sum)
 
@@ -58,7 +58,7 @@ func Etf(monthMoney float64, yearInc float64, yearCount int, yearRate float64) f
 // 每月还款额=[贷款本金×月利率×（1+月利率）^还款月数]÷[（1+月利率）^还款月数－1]
 func InstallmentCal(totalMoney float64, monthCount int, monthMoney float64) float64 {
 	// 采用最土的暴力破解法
-	var rate float64 = 0.0200 // 从2%开始算起，保留两位小数
+	var rate = 0.0200 // 从2%开始算起，保留两位小数
 	for ; rate < 1; rate += 0.0001 {
 		monthRate := rate / 12
 		monthX := (totalMoney * monthRate * math.Pow(1+monthRate, float64(monthCount))) /
@@ -76,11 +76,11 @@ func InstallmentCal(totalMoney float64, monthCount int, monthMoney float64) floa
 // AnnualYield 根据起始金额和结束金额和时间计算年化复合收益率
 func AnnualYield(startMoney float64, endMoney float64, yearCount int) float64 {
 	// 采用最土的暴力破解法
-	var rate float64 = 0.0200 // 从2%开始算起，保留两位小数
+	var rate = 0.0200 // 从2%开始算起，保留两位小数
 	for ; rate < 1; rate += 0.000001 {
 		endMoneyTmp := startMoney
 		for i := 0; i < yearCount; i++ {
-			endMoneyTmp += (endMoneyTmp * rate)
+			endMoneyTmp += endMoneyTmp * rate
 		}
 		if math.Abs(endMoneyTmp-endMoney)/endMoney < 0.00001 {
 			tmp := rate * 100
