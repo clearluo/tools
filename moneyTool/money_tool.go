@@ -6,10 +6,41 @@ import (
 )
 
 func main() {
-	//Etf(0.5, 0.05, 30, 0.2989)
-	//InstallmentCal(200000, 36, 7380)
-	Snowball(500000, 0.30, 29)
-	//AnnualYield(1000, 3952, 14)
+	//Etf(0.2, 0.05, 2, 0.15)
+	InstallmentCal(14236.7, 12, 1303.15)
+	//Snowball(54000, 0.15, 28)
+	//AnnualYield(33, 43, 3)
+	//YearRate()
+}
+
+// YearRate 计算年化收益率
+func YearRate() float64 {
+	arr2016 := []float64{4288, 17088, 32338, 38881, 78121}
+	_ = arr2016
+	arr2017 := []float64{88227, 98984, 81999, 96303, 133686, 134212, 145988, 169710, 193708, 207695, 211575, 256017}
+	_ = arr2017
+	arr2018 := []float64{284512, 300005, 338834, 317781, 322593, 320717, 315315, 303018, 304963, 304653, 290520, 279852}
+	_ = arr2018
+	arr2019 := []float64{279056, 304874, 311967, 331306, 372794, 332894, 359431, 383956, 408794, 439362, 454984, 446994}
+	_ = arr2019
+	total := []float64{}
+	data := total
+	profit := 150000.0
+	var rate float64
+	for rate = -0.5; rate < 1; rate += 0.0001 {
+		monthRate := rate / 12
+		sumProfit := 0.0
+		for _, v := range data {
+			sumProfit += v * monthRate
+		}
+		tmp := math.Abs(sumProfit - profit)
+		if tmp < 10 {
+			fmt.Printf("年化收益率: %.2f%%\n", rate*100)
+			return rate
+		}
+	}
+	fmt.Println("计算错误")
+	return 0
 }
 
 // Snowball 计算现在x元在股市未来n年后的价值
@@ -38,7 +69,7 @@ func Etf(monthMoney float64, yearInc float64, yearCount int, yearRate float64) f
 		for j := 1; j <= 12; j++ {
 			sum += monthMoney
 			sum += (sum * yearRate) / 12
-			//fmt.Printf("第%d年,第%d个月:%.2fW\n", i, j, sum)
+			fmt.Printf("第%d年,第%d个月:%.2fW\n", i, j, sum)
 		}
 		monthMoney *= 1 + yearInc
 		//fmt.Printf("第%d年后投入总金额:%.2fW\n", i, sumBase)
