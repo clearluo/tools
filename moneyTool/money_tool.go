@@ -117,20 +117,20 @@ func YearRate() float64 {
 	total = append(total, arr2017...)
 	total = append(total, arr2018...)
 	total = append(total, arr2019...)
-	total = append(total, arr2020...)
-	profitTotal := profit2016 + profit2017 + profit2018 + profit2019 + profit2020
+	//total = append(total, arr2020...)
+	profitTotal := profit2016 + profit2017 + profit2018 + profit2019
 	_ = profitTotal
-	data := arr2019
-	profit := profit2019
+	data := total
+	profit := profitTotal
 	var rate float64
-	for rate = -0.5; rate < 1; rate += 0.0001 {
+	for rate = -0.9; rate < 1; rate += 0.0001 {
 		monthRate := rate / 12
 		sumProfit := 0.0
 		for _, v := range data {
 			sumProfit += v * monthRate
 		}
 		tmp := math.Abs(sumProfit - profit)
-		if tmp < 50 {
+		if tmp < 10 {
 			fmt.Printf("yearRate: %.2f%%\n", rate*100)
 			return rate
 		}
