@@ -6,12 +6,12 @@ import (
 )
 
 func main() {
-	//Etf(10, 0.05, 0.05, 18, 0.2)
-	//InstallmentCal(8548.21, 12, 740.56)
-	//Snowball(100000, 0.15, 18)
+	//Etf(0, 0.2, 0.05, 3, 0.12)
+	//InstallmentCal(2000, 12, 179.87)
+	Snowball(5, 0.23, 47)
 	//AnnualYield(1, 10, 20)
 	//YearRate()
-	AutomaticYearRate()
+	//AutomaticYearRate()
 }
 
 // Snowball 计算现在x元在股市未来n年后的价值
@@ -121,8 +121,8 @@ func YearRate() float64 {
 	//total = append(total, arr2020...)
 	profitTotal := profit2016 + profit2017 + profit2018 + profit2019
 	_ = profitTotal
-	data := total
-	profit := profitTotal
+	data := arr2017
+	profit := profit2017
 	var rate float64
 	for rate = -0.9; rate < 1; rate += 0.0001 {
 		monthRate := rate / 12
