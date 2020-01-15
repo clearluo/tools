@@ -35,7 +35,7 @@ type Data struct {
 
 const (
 	userId   = "t***w"
-	id       = "200590748"
+	id       = "200590704"
 	name     = "AipPods"
 	maxPrice = 99
 	addPrice = 3 // 加价间隔
@@ -44,6 +44,8 @@ const (
 )
 
 var (
+	queryClient = &http.Client{}
+	queryHead   = &http.Request{}
 	priceData   = url.Values{} // 出价的body
 	priceClient = &http.Client{}
 	priceHead   = &http.Request{}
@@ -51,6 +53,17 @@ var (
 )
 
 func init() {
+
+	quryApiUrl := "https://used-api.jd.com/auctionRecord/getCurrentAndOfferNum?auctionId=" + id //+ "&callback=__jp17"
+	data := url.Values{}
+	uTmp, _ := url.ParseRequestURI(quryApiUrl)
+	urlStr := uTmp.String()
+	queryHead, _ = http.NewRequest("POST", urlStr, strings.NewReader(data.Encode())) // URL-encoded payload
+	queryHead.Header.Add("Referer", "https://sell.paipai.com/auction-list/"+id)
+	queryHead.Header.Add("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36")
+	queryHead.Header.Add("cookie", cookie)
+	queryHead.Header.Add("content-type", "application/x-www-form-urlencoded")
+
 	priceData.Set("trackId", "0d1b9bc80e5339d06cd27454b25c4b66")
 	priceData.Set("eid", "MX3IRQ3GTOJTZWGF3WHRPHINBUVMCNIWU5CQR7J25IYYFJO5JJ57QBXR3KLXSC56VGZEDIZ3AURLP5S44YW3HXVQYY")
 	priceData.Set("auctionId", id)
@@ -130,19 +143,7 @@ func main() {
 }
 
 func getPrice() (*Data, error) {
-	apiUrl := "https://used-api.jd.com/auctionRecord/getCurrentAndOfferNum?auctionId=" + id //+ "&callback=__jp17"
-	data := url.Values{}
-	u, _ := url.ParseRequestURI(apiUrl)
-	urlStr := u.String()
-	client := &http.Client{}
-	r, _ := http.NewRequest("POST", urlStr, strings.NewReader(data.Encode())) // URL-encoded payload
-	r.Header.Add("Referer", "https://sell.paipai.com/auction-list/"+id)
-	r.Header.Add("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36")
-	r.Header.Add("cookie", cookie)
-	r.Header.Add("content-type", "application/x-www-form-urlencoded")
-	//r.Header.Add("content-length", strconv.Itoa(len(data.Encode())))
-
-	resp, err := client.Do(r)
+	resp, err := queryClient.Do(queryHead)
 	if err != nil {
 		fmt.Println(err.Error())
 		return nil, err
