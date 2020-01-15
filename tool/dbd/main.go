@@ -48,7 +48,7 @@ func init() {
 
 func main() {
 	isSleep := true
-	sleepTime := time.Second * 3
+	sleepTime := time.Second * 5
 	for {
 		if isSleep {
 			time.Sleep(sleepTime)
