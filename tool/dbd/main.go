@@ -35,12 +35,12 @@ type Data struct {
 
 const (
 	userId   = "t***w"
-	id       = "200445993"
+	id       = "200590046"
 	name     = "MagicWatch2"
-	maxPrice = 999
+	maxPrice = 900
 	addPrice = 5 // 加价间隔
-	cookie   = "shshshfp=8b3cbd79d85c35055d31fdaaad749f33; shshshfpa=b8cc7f40-5852-c878-2008-202cb7b564aa-1576751256; shshshfpb=b8cc7f40-5852-c878-2008-202cb7b564aa-1576751256; __jdv=104464258|direct|-|none|-|1578034862589; mba_muid=1576642527839566679144; 3AB9D23F7A4B3C9B=MX3IRQ3GTOJTZWGF3WHRPHINBUVMCNIWU5CQR7J25IYYFJO5JJ57QBXR3KLXSC56VGZEDIZ3AURLP5S44YW3HXVQYY; __jda=104464258.1576642527839566679144.1576642528.1578736734.1578874542.15; __jdc=104464258; __tak=048eff3fa2b5f384a24707749124ef65611095ba2ce80301f3aa7af39d0f078071d25e90b9ff8999dd043f5ebb21bfbaf0dfc73ef9ba5c4816f6bec328292952b7528fd77aeda3ed59d7238503b7c1e6; thor=A6CD0F6C27D13A138EBD4D18B8A97E3C4500B17A8DE81BCF36D68E25785D899098B1DCDA754E8074C88D2343AD720CE2210460179B215B95FEF5FA1315F61ADFB84F7FDE8709545B3752B2D46698B534AEEF82BE8EA439399ECC1FF8350F70F75A49469AAA9F119A2D2F4E317F1EC9B232A7DB34257DCCF7C01BD9EF2934CCC9; pin=tolsw; unick=%E6%B0%91%E9%97%B4%E5%8D%97%E5%AF%92%E5%B8%A6; __jdb=104464258.4.1576642527839566679144|15.1578874542"
-	token    = "agq7n3usqez520p99oc1578874541099bwk0~NmZeSyVEbFNSdHB1fFZZBHtwAwFhRHpTBiUjb35DFm5vLUROOBEzLUF7G28iAAFBKBgVFA1EPwIVKDclGENXbm8iVlQiAwpTTx1lKSsTCG5vfmsaDUR6LUEnG29+PU8DenMFWWAEb0UHd354dVBeVHR8Vg1pADUQVnR1fXJQWwUrKVJkc0oKUwoyKhFmWzEQKyVbSzQ6dF0/Yy8+MD1PCBFmRF09CngBAig3LC1PDl0gGBUUDUQmHz9jfRFmTgxHLjBeVz9LMhQXIC4ha1NdAnlwBQ5lUApTTx1lPTA9TwgRZl9MJRYlSz9jaxFmEQRub35rGmNUeklPd2t9aFFBBnQYFUVzSnQUByU0KmZbTwY1cAMafUQ1AkF7ZSh2VQlIPTRPAD8Xb0YMIis4PFZfVD8mTlQzBDUIUy13dS5VGhBhZlQaa0QwFVoyJCN9El9ZeDVEVSkFZAZRcHJ6cldZAHh2AA1pUmAcECtlYWYFHlxvfhVUOAA7ElInLG9oQwRBb34VCXNKdBsKImV3ZlhUC3VmSg==|~1578874664955~1~20191203~eyJ2aXdlIjoiMCIsImJhaW4iOnsiaWMiOiIxIiwibGUiOiIxMDAiLCJjdCI6IjAiLCJkdCI6ImkifX0=~1~~00v4|1d25-cq,21;1d9-er,2m;1d11-hl,3f;1d4w-j4,3t;doei:,1,1,0,0,1,1000,-1000,1000,-1000;dmei:,1,1,1,1000,-1000,1000,-1000,1000,-1000;emc:,d:5;emcf:,d:5;ivli:;iivl:;ivcvj:;scvje:;1578874664487,1578874664953,0,0,4,4,0,1,0,0,0;jh2u"
+	cookie   = "shshshfpa=b8cc7f40-5852-c878-2008-202cb7b564aa-1576751256; shshshfpb=b8cc7f40-5852-c878-2008-202cb7b564aa-1576751256; __jdv=104464258|direct|-|none|-|1578034862589; mba_muid=1576642527839566679144; 3AB9D23F7A4B3C9B=MX3IRQ3GTOJTZWGF3WHRPHINBUVMCNIWU5CQR7J25IYYFJO5JJ57QBXR3KLXSC56VGZEDIZ3AURLP5S44YW3HXVQYY; shshshfp=e3c1b507580913054efdb15be6c61cc9; areaId=16; ipLoc-djd=16-1303-3484-0; __jdc=104464258; __tak=3abcee8b2e24588670bf5a131f4c8892fd4ad34146e8732717e121ab22b10584feb8b824eb5722adce847eb15324814d875b636e3659ff2a9ec56ee11664ad9f6b25b8704d6586cb96c41341926130c3; __jda=104464258.1576642527839566679144.1576642528.1579049397.1579054173.20; thor=A6CD0F6C27D13A138EBD4D18B8A97E3C62A6F403197B591A1AFFF8FC4B42DF94247A82A6D78E88DC9F90945E40FCB265C9D16B4753A3C6F31059A5F85E04EBC60C672D676A204094FAA4D23C50B624B6660CC7C216544E9714BFB963BD0AA561B4879696FF97E6A39237F80B18FDB1A666910DD82DD0C4703575F2C1BBF0E3B8; pin=tolsw; unick=%E6%B0%91%E9%97%B4%E5%8D%97%E5%AF%92%E5%B8%A6; __jdb=104464258.15.1576642527839566679144|20.1579054173"
+	token    = "ak8p224mjwbtbxwuwbm15790493966694zcg~NmZeSyVEbFNSdHB0dFRaCnlxAw1mRHpTBiUjb35DFm5vLUROOBEzLUF7G28iAAFBKBgVFA1EPwIVKDclGENXbm8iVlQiAwpTTx1lKSsTCG5vfmsaIx8/FV4dZWEYQwtub35rGmBRYUMCcCV0cAVbC3h1Bgs3X24QVnkhLiVUWAB9cgYOZgA7FD9jaxFmCB5fEWYNZHMANx0QJBtvaD1PWj4waxprOnQCBi0rYzQABEIsLRlbPgsKU08dZT0qPU8IEWYYWSQFIhgML2opIRUMWyFrBQhhU29BU3VxEWZNMRA9MGsaazp0GRc1Nz5+PU8eEWZHUQ1EbC1Bc3VhfE1bHn1oBxRlXwpTHmNrbyEFCUEqZg0aaFA3SEFtZS43Q1cQeHEATjkQIAIUdSMsLxUbWXgsA1lhUTVGVHkvK3wFWgB+K0NJc0p0EkF7ZSsgWB5RI31ECjpTJwIOOSR/M1NcB3pyAQxjU2RGVnlzeykSBxBhZlNLP0RsUwcoITdwUhVeb2gVUSJEbFNSY2tvLggOEHdmDgFoXnQM|~1579057846361~1~20191203~eyJ2aXdlIjoiMCIsImJhaW4iOnsiaWMiOiIxIiwibGUiOiIxMDAiLCJjdCI6IjAiLCJkdCI6ImkifX0=~1~~30v4|1d6w-hb,8b;doei:,1,1,0,0,1,1000,-1000,1000,-1000;dmei:,1,1,1,1000,-1000,1000,-1000,1000,-1000;emc:,d:1;emcf:,d:1;ivli:;iivl:;ivcvj:;scvje:;1579057845453,1579057846357,0,0,1,1,0,0,0,0,0;uk67"
 )
 
 func init() {
@@ -48,9 +48,10 @@ func init() {
 
 func main() {
 	isSleep := true
+	sleepTime := time.Second * 3
 	for {
 		if isSleep {
-			time.Sleep(time.Second * 2)
+			time.Sleep(sleepTime)
 		}
 
 		ret, err := getPrice()
@@ -64,17 +65,30 @@ func main() {
 			fmt.Println("超出最高价，退出竞拍")
 			break
 		}
-		if ret.CurrentBidder == userId {
-			//fmt.Println("最高价为本人，不出价")
-			continue
-		}
 		if remainTime < 0 {
 			fmt.Println("竞拍结束")
 			break
 		}
-		if remainTime < 5 {
+		if ret.CurrentBidder == userId {
+			//fmt.Println("最高价为本人，不出价")
+			continue
+		}
+		if remainTime < 10 {
+			sleepTime = time.Second
+		}
+		if remainTime < 2 {
 			isSleep = false
-			bidPrice(ret.CurrentPrice + addPrice)
+			price := ret.CurrentPrice + 3
+			retCode := 0
+			for price < maxPrice {
+				retCode = bidPrice(price)
+				if retCode == 302 {
+					time.Sleep(time.Millisecond * 50) // 休眠1/50秒
+					continue                          // 连续出价不抬价
+				}
+				price += 3
+			}
+
 		} else {
 			//bidPrice(ret.CurrentPrice + addPrice)
 		}
@@ -149,7 +163,7 @@ func bidPrice(price float64) int {
 
 	resp, err := client.Do(r)
 	if err != nil {
-		fmt.Println(err.Error())
+		//fmt.Println(err.Error())
 		return -1
 	}
 	defer resp.Body.Close()
@@ -158,7 +172,7 @@ func bidPrice(price float64) int {
 	ret := &Ret{}
 	err = json.Unmarshal(retByte, ret)
 	if err != nil {
-		fmt.Println(err)
+		//fmt.Println(err)
 		return -1
 	}
 	if ret.Code != 200 {
