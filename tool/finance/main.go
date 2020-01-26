@@ -8,8 +8,8 @@ import (
 func main() {
 	//Etf(0, 0.2, 0.05, 3, 0.12)
 	//InstallmentCal(2000, 12, 179.87)
-	//Snowball(5, 0.23, 47)
-	AnnualYield(1, 1.3417, 7)
+	Snowball(1, 0.1264, 20)
+	//AnnualYield(1, 1.3417, 7)
 	//YearRate()
 	//AutomaticYearRate()
 }
