@@ -7,7 +7,7 @@ import (
 
 func main() {
 	//Etf(0, 0.2, 0.05, 3, 0.12)
-	//InstallmentCal(2000, 12, 179.87)
+	//InstallmentCal(9102, 12, 826.77)
 	//Snowball(1, 0.1264, 20)
 	//AnnualYield(1, 1.3417, 7)
 	YearRate()
@@ -110,7 +110,7 @@ func YearRate() float64 {
 	arr2019 := []float64{279056, 304874, 311967, 331306, 372794, 332894, 359431, 383956, 408794, 439362, 454984, 446994}
 	profit2019 := 159139.16
 	_, _ = arr2019, profit2019
-	arr2020 := []float64{475256,464813.63}
+	arr2020 := []float64{475256,479241.63}
 	profit2020 := -17398.28
 	_, _ = arr2020, profit2020
 	var total []float64
