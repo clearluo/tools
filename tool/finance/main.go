@@ -6,9 +6,9 @@ import (
 )
 
 func main() {
-	//Etf(0, 0.2, 0.00, 30, 0.15)
-	//InstallmentCal(80000, 36, 2886.3)
-	//Snowball(1, 0.1264, 20)
+	//Etf(0, 0.02, 0.0, 35, 0.1)
+	//InstallmentCal(15000, 12, 1329.2)
+	//Snowball(8000, 0.98, 31)
 	//AnnualYield(14200, 16200, 5)
 	YearRate()
 	//AutomaticYearRate()
@@ -110,8 +110,8 @@ func YearRate() float64 {
 	arr2019 := []float64{279056, 304874, 311967, 331306, 372794, 332894, 359431, 383956, 408794, 439362, 454984, 446994}
 	profit2019 := 159139.16
 	_, _ = arr2019, profit2019
-	arr2020 := []float64{475256, 479741.63, 470015.96}
-	profit2020 := -37789.95
+	arr2020 := []float64{475256, 479741.63, 470015.96, 468666.72}
+	profit2020 := -9043.29
 	_, _ = arr2020, profit2020
 	var total []float64
 	total = append(total, arr2016...)
@@ -121,8 +121,8 @@ func YearRate() float64 {
 	total = append(total, arr2020...)
 	profitTotal := profit2016 + profit2017 + profit2018 + profit2019 + profit2020
 	_ = profitTotal
-	data := arr2020
-	profit := profit2020
+	data := total
+	profit := profitTotal
 	var rate float64
 	for rate = -0.9; rate < 1; rate += 0.0001 {
 		monthRate := rate / 12
@@ -132,7 +132,6 @@ func YearRate() float64 {
 		}
 		tmp := math.Abs(sumProfit - profit)
 		if tmp < 100 {
-			fmt.Println("*****:", sumProfit)
 			fmt.Printf("yearRate: %.2f%%\n", rate*100)
 			return rate
 		}
