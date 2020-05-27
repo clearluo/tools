@@ -6,10 +6,10 @@ import (
 )
 
 func main() {
-	//Etf(0, 0.2, 0.05, 3, 0.12)
+	//Etf(0, 0.2, 0.05, 30, 0.2)
 	//InstallmentCal(2000, 12, 179.87)
 	//Snowball(5, 0.23, 47)
-	AnnualYield(1, 1.3417, 7)
+	AnnualYield(41, 29348, 89)
 	//YearRate()
 	//AutomaticYearRate()
 }
@@ -85,7 +85,7 @@ func AnnualYield(startMoney float64, endMoney float64, yearCount int) float64 {
 		for i := 0; i < yearCount; i++ {
 			endMoneyTmp += endMoneyTmp * rate
 		}
-		if math.Abs(endMoneyTmp-endMoney)/endMoney < 0.00001 {
+		if math.Abs(endMoneyTmp-endMoney)/endMoney < 0.0001 {
 			tmp := rate * 100
 			//fmt.Printf("endMoneyTmp:%.2f endMoney:%.2f\n", endMoneyTmp, endMoney)
 			fmt.Printf("年化利率：%.2f%%\n", tmp)

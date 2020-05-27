@@ -35,12 +35,12 @@ type Data struct {
 
 const (
 	userId   = "t***w"
-	id       = "200590704"
-	name     = "AipPods"
-	maxPrice = 99
+	id       = "201107889"
+	name     = "Magic Watch 2"
+	maxPrice = 860
 	addPrice = 3 // 加价间隔
-	cookie   = "shshshfpa=b8cc7f40-5852-c878-2008-202cb7b564aa-1576751256; shshshfpb=b8cc7f40-5852-c878-2008-202cb7b564aa-1576751256; __jdv=104464258|direct|-|none|-|1578034862589; mba_muid=1576642527839566679144; 3AB9D23F7A4B3C9B=MX3IRQ3GTOJTZWGF3WHRPHINBUVMCNIWU5CQR7J25IYYFJO5JJ57QBXR3KLXSC56VGZEDIZ3AURLP5S44YW3HXVQYY; shshshfp=e3c1b507580913054efdb15be6c61cc9; areaId=16; ipLoc-djd=16-1303-3484-0; __jdc=104464258; __tak=3abcee8b2e24588670bf5a131f4c8892fd4ad34146e8732717e121ab22b10584feb8b824eb5722adce847eb15324814d875b636e3659ff2a9ec56ee11664ad9f6b25b8704d6586cb96c41341926130c3; __jda=104464258.1576642527839566679144.1576642528.1579049397.1579054173.20; thor=A6CD0F6C27D13A138EBD4D18B8A97E3C62A6F403197B591A1AFFF8FC4B42DF94247A82A6D78E88DC9F90945E40FCB265C9D16B4753A3C6F31059A5F85E04EBC60C672D676A204094FAA4D23C50B624B6660CC7C216544E9714BFB963BD0AA561B4879696FF97E6A39237F80B18FDB1A666910DD82DD0C4703575F2C1BBF0E3B8; pin=tolsw; unick=%E6%B0%91%E9%97%B4%E5%8D%97%E5%AF%92%E5%B8%A6; __jdb=104464258.15.1576642527839566679144|20.1579054173"
-	token    = "ak8p224mjwbtbxwuwbm15790493966694zcg~NmZeSyVEbFNSdHB0dFRaCnlxAw1mRHpTBiUjb35DFm5vLUROOBEzLUF7G28iAAFBKBgVFA1EPwIVKDclGENXbm8iVlQiAwpTTx1lKSsTCG5vfmsaIx8/FV4dZWEYQwtub35rGmBRYUMCcCV0cAVbC3h1Bgs3X24QVnkhLiVUWAB9cgYOZgA7FD9jaxFmCB5fEWYNZHMANx0QJBtvaD1PWj4waxprOnQCBi0rYzQABEIsLRlbPgsKU08dZT0qPU8IEWYYWSQFIhgML2opIRUMWyFrBQhhU29BU3VxEWZNMRA9MGsaazp0GRc1Nz5+PU8eEWZHUQ1EbC1Bc3VhfE1bHn1oBxRlXwpTHmNrbyEFCUEqZg0aaFA3SEFtZS43Q1cQeHEATjkQIAIUdSMsLxUbWXgsA1lhUTVGVHkvK3wFWgB+K0NJc0p0EkF7ZSsgWB5RI31ECjpTJwIOOSR/M1NcB3pyAQxjU2RGVnlzeykSBxBhZlNLP0RsUwcoITdwUhVeb2gVUSJEbFNSY2tvLggOEHdmDgFoXnQM|~1579057846361~1~20191203~eyJ2aXdlIjoiMCIsImJhaW4iOnsiaWMiOiIxIiwibGUiOiIxMDAiLCJjdCI6IjAiLCJkdCI6ImkifX0=~1~~30v4|1d6w-hb,8b;doei:,1,1,0,0,1,1000,-1000,1000,-1000;dmei:,1,1,1,1000,-1000,1000,-1000,1000,-1000;emc:,d:1;emcf:,d:1;ivli:;iivl:;ivcvj:;scvje:;1579057845453,1579057846357,0,0,1,1,0,0,0,0,0;uk67"
+	cookie   = "shshshfpa=b8cc7f40-5852-c878-2008-202cb7b564aa-1576751256; shshshfpb=b8cc7f40-5852-c878-2008-202cb7b564aa-1576751256; mba_muid=1576642527839566679144; 3AB9D23F7A4B3C9B=MX3IRQ3GTOJTZWGF3WHRPHINBUVMCNIWU5CQR7J25IYYFJO5JJ57QBXR3KLXSC56VGZEDIZ3AURLP5S44YW3HXVQYY; shshshfp=e3c1b507580913054efdb15be6c61cc9; areaId=16; ipLoc-djd=16-1303-3484-0; __jdv=104464258|dbd.jinyiweb.com|-|referral|-|1579397542537; __jda=104464258.1576642527839566679144.1576642528.1579600241.1579660993.33; __jdc=104464258; __tak=6e970d662aebe7e73ce4edfb635f2f798148e555dd56c387dd71f40b93e314b6f2168d7445e9c12a331a92bcb81115ad84f6473bcf9011145bb203e7364b314f2764dad7a3de63dbbdb758d064385ac0; thor=A6CD0F6C27D13A138EBD4D18B8A97E3C532040F908F7342FDA073258B976394890E5FEE40B78F0E4B4F25E2E6BF60262A576894A4892C2927D6AE74959ED2A0FA604BD4DB15F980D6FB261B8FEEA846082D438B84830EB1EC5D16C6285F4C7E74ABDADDC5D703D4B322A7D23E98A71DEB5D0D61DC72080F6888937828FAD72BC; pin=tolsw; unick=%E6%B0%91%E9%97%B4%E5%8D%97%E5%AF%92%E5%B8%A6; __jdb=104464258.4.1576642527839566679144|33.1579660993"
+	token    = "rog9ibjwl70et0e54bd15796609923194i30~NmZeSyVEbFNSdHB0cldcAnh3BQpmRHpTBiUjb35DFm5vLUROOBEzLUF7G28iAAFBKBgVFA1EPwIVKDclGENXbm8iVlQiAwpTTx1lKSsTCG5vfmsaIx8/FV4dZWEYQwtub35rGmBRYUMCcCV0cAVbC3h1Bgs3X24QVnkhLiVUWAB9cgYOZgA7FD9jaxFmCB5fEWYNZHMANx0QJBtvaD1PWj4waxprOnQCBi0rYzQABEIsLRlbPgsKU08dZT0qPU8IEWYYWSQFIhgML2opIRUMWyFrBQhgV2ZGW3l+EWZNMRA9MGsaazp0GRc1Nz5+PU8eEWZHUQ1EbC1Bc3dhfE1bHn1oBxRlXwpTHmNrbyEFCUEqZg0aaFA3REFtZS43Q1cQPilTXmQTOklSM3V+NRQBC3wmQEI+VDJCB3YoLi8HBQYqLERVc0p0EkF7ZSsgWB5RI31ECjpTJwIOOSR/M1NcB3pyAQxjU2RGVnlzeykSBxBhZlNLP0RsU1o4ITdwUg4Bb2gVUSJEbFNSY2tvLggOEHdmDgFoXnQM|~1579661053706~1~20200120~eyJ2aXdlIjoiMCIsImJhaW4iOnsiaWMiOiIxIiwibGUiOiIxMDAiLCJjdCI6IjAiLCJkdCI6ImkifX0=~1~-231~miix|doei:,1,1,0,0,1,1000,-1000,1000,-1000;dmei:,1,1,1,1000,-1000,1000,-1000,1000,-1000;emc:;emcf:;ivli:;iivl:;ivcvj:;scvje:;1579661053223,1579661053702,0,0,0,0,0,0,0,0,0;jcnm"
 )
 
 var (
@@ -53,7 +53,6 @@ var (
 )
 
 func init() {
-
 	quryApiUrl := "https://used-api.jd.com/auctionRecord/getCurrentAndOfferNum?auctionId=" + id //+ "&callback=__jp17"
 	data := url.Values{}
 	uTmp, _ := url.ParseRequestURI(quryApiUrl)
@@ -129,9 +128,7 @@ func main() {
 			}
 
 		} else {
-			start := time.Now()
-			bidPrice(ret.CurrentPrice + addPrice)
-			fmt.Println("出价用时:", time.Since(start))
+			//bidPrice(ret.CurrentPrice + addPrice)
 		}
 	}
 	if ret, err := getPrice(); err != nil {
@@ -167,49 +164,6 @@ func getPrice() (*Data, error) {
 
 // code=302,message=同一用户不能连续出价
 // code=304,message=客官，您出价太低了，再加点吧！
-func bidPriceOld(price float64) (retCode int) {
-	apiUrl := "https://used-api.paipai.com/auctionRecord/offerPrice"
-	data := url.Values{}
-	data.Set("trackId", "0d1b9bc80e5339d06cd27454b25c4b66")
-	data.Set("eid", "MX3IRQ3GTOJTZWGF3WHRPHINBUVMCNIWU5CQR7J25IYYFJO5JJ57QBXR3KLXSC56VGZEDIZ3AURLP5S44YW3HXVQYY")
-	data.Set("auctionId", id)
-	data.Set("token", token)
-	data.Set("price", fmt.Sprintf("%v", price))
-	data.Set("entryid", "")
-	data.Set("address", "16-1303-48712-48759")
-	data.Set("initFailed", "false")
-	u, _ := url.ParseRequestURI(apiUrl)
-	urlStr := u.String()
-	client := &http.Client{}
-	r, _ := http.NewRequest("POST", urlStr, strings.NewReader(data.Encode())) // URL-encoded payload
-	r.Header.Add("Referer", "https://sell.paipai.com/auction-detail/"+id)
-	r.Header.Add("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36")
-	r.Header.Add("cookie", cookie)
-	r.Header.Add("content-type", "application/x-www-form-urlencoded")
-	resp, err := client.Do(r)
-	if err != nil {
-		//fmt.Println(err.Error())
-		return
-	}
-	defer resp.Body.Close()
-	retByte, _ := ioutil.ReadAll(resp.Body)
-	//fmt.Println("resp:", string(retByte))
-	ret := &Ret{}
-	err = json.Unmarshal(retByte, ret)
-	if err != nil {
-		//fmt.Println(err)
-		return
-	}
-	retCode = ret.Code
-	if retCode != 200 {
-		err := fmt.Errorf("%v:%v", ret.Code, ret.Message)
-		fmt.Println(err)
-		return
-	}
-	fmt.Println("出价成功:", price)
-	return
-}
-
 func bidPrice(price float64) (retCode int) {
 	getReqHead(price)
 	resp, err := priceClient.Do(priceHead)
