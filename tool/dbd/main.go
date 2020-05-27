@@ -128,7 +128,9 @@ func main() {
 			}
 
 		} else {
+			//start := time.Now()
 			//bidPrice(ret.CurrentPrice + addPrice)
+			//fmt.Println("出价用时:", time.Since(start))
 		}
 	}
 	if ret, err := getPrice(); err != nil {

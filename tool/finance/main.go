@@ -6,11 +6,11 @@ import (
 )
 
 func main() {
-	//Etf(0, 0.2, 0.05, 30, 0.2)
-	//InstallmentCal(2000, 12, 179.87)
-	//Snowball(5, 0.23, 47)
-	AnnualYield(41, 29348, 89)
-	//YearRate()
+	//Etf(0, 0.02, 0.0, 35, 0.1)
+	//InstallmentCal(15000, 12, 1329.2)
+	//Snowball(8000, 0.98, 31)
+	//AnnualYield(14200, 16200, 5)
+	YearRate()
 	//AutomaticYearRate()
 }
 
@@ -79,7 +79,7 @@ func InstallmentCal(totalMoney float64, monthCount int, monthMoney float64) floa
 // AnnualYield 根据起始金额和结束金额和时间计算年化复合收益率
 func AnnualYield(startMoney float64, endMoney float64, yearCount int) float64 {
 	// 采用最土的暴力破解法
-	var rate = 0.0200 // 从2%开始算起，保留两位小数
+	var rate = 0.00200 // 从2%开始算起，保留两位小数
 	for ; rate < 1; rate += 0.000001 {
 		endMoneyTmp := startMoney
 		for i := 0; i < yearCount; i++ {
@@ -110,19 +110,19 @@ func YearRate() float64 {
 	arr2019 := []float64{279056, 304874, 311967, 331306, 372794, 332894, 359431, 383956, 408794, 439362, 454984, 446994}
 	profit2019 := 159139.16
 	_, _ = arr2019, profit2019
-	arr2020 := []float64{475256}
-	profit2020 := 0.0
+	arr2020 := []float64{475256, 479741.63, 470015.96, 468666.72, 499780.36}
+	profit2020 := -53509.55
 	_, _ = arr2020, profit2020
-	total := []float64{}
+	var total []float64
 	total = append(total, arr2016...)
 	total = append(total, arr2017...)
 	total = append(total, arr2018...)
 	total = append(total, arr2019...)
-	//total = append(total, arr2020...)
-	profitTotal := profit2016 + profit2017 + profit2018 + profit2019
+	total = append(total, arr2020...)
+	profitTotal := profit2016 + profit2017 + profit2018 + profit2019 + profit2020
 	_ = profitTotal
-	data := arr2017
-	profit := profit2017
+	data := total
+	profit := profitTotal
 	var rate float64
 	for rate = -0.9; rate < 1; rate += 0.0001 {
 		monthRate := rate / 12
@@ -131,8 +131,8 @@ func YearRate() float64 {
 			sumProfit += v * monthRate
 		}
 		tmp := math.Abs(sumProfit - profit)
-		if tmp < 10 {
-			fmt.Printf("yearRate: %.2f%%\n", rate*100)
+		if tmp < 100 {
+			fmt.Printf("total: %v yearRate: %.2f%%\n", profitTotal, rate*100)
 			return rate
 		}
 	}
@@ -151,7 +151,7 @@ func AutomaticYearRate() float64 {
 	arr2020 := []float64{51405}
 	profit2020 := 0.0
 	_, _ = arr2020, profit2020
-	total := []float64{}
+	var total []float64
 	total = append(total, arr2018...)
 	total = append(total, arr2019...)
 	total = append(total, arr2020...)
