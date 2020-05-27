@@ -6,12 +6,11 @@ import (
 )
 
 func main() {
-	//Etf(0, 0.02, 0.0, 35, 0.1)
+	Etf(0, 0.2, 0.05, 30, 0.15)
 	//InstallmentCal(15000, 12, 1329.2)
 	//Snowball(8000, 0.98, 31)
 	//AnnualYield(14200, 16200, 5)
 	YearRate()
-	//AutomaticYearRate()
 }
 
 // Snowball 计算现在x元在股市未来n年后的价值
@@ -133,42 +132,6 @@ func YearRate() float64 {
 		tmp := math.Abs(sumProfit - profit)
 		if tmp < 100 {
 			fmt.Printf("total: %v yearRate: %.2f%%\n", profitTotal, rate*100)
-			return rate
-		}
-	}
-	fmt.Println("cal err")
-	return 0
-}
-
-// AutomaticYearRate
-func AutomaticYearRate() float64 {
-	arr2018 := []float64{2000, 4000, 6000, 8000, 10000, 12000, 14000, 16000, 18000, 20000, 22000, 24000}
-	profit2018 := -2623.0
-	_, _ = arr2018, profit2018
-	arr2019 := []float64{26100, 28200, 30300, 32400, 34500, 36600, 38700, 40800, 42900, 45000, 47100, 49200}
-	profit2019 := 9974.0
-	_, _ = arr2019, profit2019
-	arr2020 := []float64{51405}
-	profit2020 := 0.0
-	_, _ = arr2020, profit2020
-	var total []float64
-	total = append(total, arr2018...)
-	total = append(total, arr2019...)
-	total = append(total, arr2020...)
-	profitTotal := profit2018 + profit2019 + profit2020
-	_ = profitTotal
-	data := total
-	profit := profitTotal
-	var rate float64
-	for rate = -0.5; rate < 1; rate += 0.0001 {
-		monthRate := rate / 12
-		sumProfit := 0.0
-		for _, v := range data {
-			sumProfit += v * monthRate
-		}
-		tmp := math.Abs(sumProfit - profit)
-		if tmp < 50 {
-			fmt.Printf("yearRate: %.2f%%\n", rate*100)
 			return rate
 		}
 	}
