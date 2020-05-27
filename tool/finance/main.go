@@ -14,7 +14,6 @@ func main() {
 	//Snowball(8000, 0.98, 31)
 	//AnnualYield(14200, 16200, 5)
 	YearRate()
-	YearRateNew()
 }
 
 // Snowball 计算现在x元在股市未来n年后的价值
@@ -99,51 +98,7 @@ func AnnualYield(startMoney float64, endMoney float64, yearCount int) float64 {
 	return 0
 }
 
-// YearRate
 func YearRate() float64 {
-	arr2016 := []float64{4288, 17088, 32338, 38881, 78121}
-	profit2016 := -6736.0
-	_, _ = arr2016, profit2016
-	arr2017 := []float64{88227, 98984, 81999, 96303, 133686, 134212, 145988, 169710, 193708, 207695, 211575, 256017}
-	profit2017 := 34031.0
-	_, _ = arr2017, profit2017
-	arr2018 := []float64{284512, 300005, 338834, 317781, 322593, 320717, 315315, 303018, 304963, 304653, 290520, 279852}
-	profit2018 := -56922.0
-	_, _ = arr2018, profit2018
-	arr2019 := []float64{279056, 304874, 311967, 331306, 372794, 332894, 359431, 383956, 408794, 439362, 454984, 446994}
-	profit2019 := 159139.16
-	_, _ = arr2019, profit2019
-	arr2020 := []float64{475256, 479741.63, 470015.96, 468666.72, 499780.36}
-	profit2020 := -53509.55
-	_, _ = arr2020, profit2020
-	var total []float64
-	total = append(total, arr2016...)
-	total = append(total, arr2017...)
-	total = append(total, arr2018...)
-	total = append(total, arr2019...)
-	total = append(total, arr2020...)
-	profitTotal := profit2016 + profit2017 + profit2018 + profit2019 + profit2020
-	_ = profitTotal
-	data := total
-	profit := profitTotal
-	var rate float64
-	for rate = -0.9; rate < 1; rate += 0.00001 {
-		monthRate := rate / 12
-		sumProfit := 0.0
-		for _, v := range data {
-			sumProfit += v * monthRate
-		}
-		tmp := math.Abs(sumProfit - profit)
-		if tmp < 100 {
-			fmt.Printf("total: %v yearRate: %.2f%%\n", profitTotal, rate*100)
-			return rate
-		}
-	}
-	fmt.Println("cal err")
-	return 0
-}
-
-func YearRateNew() float64 {
 	readContext, err := ioutil.ReadFile("data.txt")
 	if err != nil {
 		fmt.Println(err)
