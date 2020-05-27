@@ -2,15 +2,19 @@ package main
 
 import (
 	"fmt"
+	"io/ioutil"
 	"math"
+	"strconv"
+	"strings"
 )
 
 func main() {
-	Etf(0, 0.2, 0.05, 30, 0.15)
+	//Etf(0, 0.2, 0.05, 30, 0.20)
 	//InstallmentCal(15000, 12, 1329.2)
 	//Snowball(8000, 0.98, 31)
 	//AnnualYield(14200, 16200, 5)
 	YearRate()
+	YearRateNew()
 }
 
 // Snowball 计算现在x元在股市未来n年后的价值
@@ -123,13 +127,68 @@ func YearRate() float64 {
 	data := total
 	profit := profitTotal
 	var rate float64
-	for rate = -0.9; rate < 1; rate += 0.0001 {
+	for rate = -0.9; rate < 1; rate += 0.00001 {
 		monthRate := rate / 12
 		sumProfit := 0.0
 		for _, v := range data {
 			sumProfit += v * monthRate
 		}
 		tmp := math.Abs(sumProfit - profit)
+		if tmp < 100 {
+			fmt.Printf("total: %v yearRate: %.2f%%\n", profitTotal, rate*100)
+			return rate
+		}
+	}
+	fmt.Println("cal err")
+	return 0
+}
+
+func YearRateNew() float64 {
+	readContext, err := ioutil.ReadFile("data.txt")
+	if err != nil {
+		fmt.Println(err)
+		return 0
+	}
+	lineSli := strings.Split(string(readContext), "\n")
+	var principalTotal []float64
+	var profitTotal float64
+	for _, line := range lineSli {
+		if len(line) < 3 || strings.HasPrefix(line, "#") {
+			continue
+		}
+		line = strings.Trim(line, "\r")
+		line = strings.Trim(line, " ")
+		rowSli := strings.Split(line, ":")
+		if len(rowSli) != 3 {
+			fmt.Println("len(rowSli)!=3")
+			continue
+		}
+		rowSli[1] = strings.Trim(rowSli[1], " ")
+		profitTmp, err := strconv.ParseFloat(rowSli[1], 64)
+		if err != nil {
+			fmt.Println("strconv.ParseFloat err:", rowSli[1])
+			return 0
+		}
+		profitTotal += profitTmp
+		principalSli := strings.Split(rowSli[2], ",")
+		for _, v := range principalSli {
+			v = strings.Trim(v, " ")
+			principalTmp, err := strconv.ParseFloat(v, 64)
+			if err != nil {
+				fmt.Println("strconv.ParseFloat err:", v)
+				return 0
+			}
+			principalTotal = append(principalTotal, principalTmp)
+		}
+	}
+	var rate float64
+	for rate = -0.9; rate < 1; rate += 0.00001 {
+		monthRate := rate / 12
+		sumProfit := 0.0
+		for _, v := range principalTotal {
+			sumProfit += v * monthRate
+		}
+		tmp := math.Abs(sumProfit - profitTotal)
 		if tmp < 100 {
 			fmt.Printf("total: %v yearRate: %.2f%%\n", profitTotal, rate*100)
 			return rate
