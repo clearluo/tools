@@ -11,7 +11,7 @@ import (
 func main() {
 	//Etf(0, 0.2, 0.05, 30, 0.20)
 	//InstallmentCal(15000, 12, 1329.2)
-	//Snowball(8000, 0.98, 31)
+	//Snowball(50, 0.15, 28)
 	//AnnualYield(14200, 16200, 5)
 	YearRate()
 }
@@ -145,7 +145,7 @@ func YearRate() float64 {
 		}
 		tmp := math.Abs(sumProfit - profitTotal)
 		if tmp < 100 {
-			fmt.Printf("total: %v yearRate: %.2f%%\n", profitTotal, rate*100)
+			fmt.Printf("total: %.2fW yearRate: %.2f%%\n", profitTotal/10000, rate*100)
 			return rate
 		}
 	}
