@@ -9,11 +9,12 @@ import (
 )
 
 func main() {
-	//Etf(0, 0.2, 0.05, 30, 0.20)
+	//Etf(0, 0.2, 0.05, 40, 0.15)
 	//InstallmentCal(15000, 12, 1329.2)
-	//Snowball(50, 0.15, 28)
+	//Snowball(260, 0.15, 28)
 	//AnnualYield(14200, 16200, 5)
-	YearRate()
+	//YearRate()
+	Retire(100000000, 0.15, 0.04)
 }
 
 // Snowball 计算现在x元在股市未来n年后的价值
@@ -115,7 +116,7 @@ func YearRate() float64 {
 		line = strings.Trim(line, " ")
 		rowSli := strings.Split(line, ":")
 		if len(rowSli) != 3 {
-			fmt.Println("len(rowSli)!=3")
+			fmt.Println("len(rowSli)!=3:", line)
 			continue
 		}
 		rowSli[1] = strings.Trim(rowSli[1], " ")
@@ -151,4 +152,14 @@ func YearRate() float64 {
 	}
 	fmt.Println("cal err")
 	return 0
+}
+
+func Retire(base float64, rate float64, useRate float64) {
+	fmt.Printf("初始本金: %.2fW, 投资年化收益率: %.2f%%, 每年腐败比例%.2f%%\n", base/10000, rate, useRate)
+	for i := 0; i < 20; i++ {
+		base *= 1 + rate
+		use := base * useRate
+		base -= use
+		fmt.Printf("第%d年提取: %.2fW, 剩余: %.2fW\n", i+1, use/10000, base/10000)
+	}
 }
