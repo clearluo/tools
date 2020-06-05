@@ -7,6 +7,7 @@ import (
 	"net/http"
 	"net/url"
 	"strings"
+	"sync"
 	"time"
 )
 
@@ -35,12 +36,12 @@ type Data struct {
 
 const (
 	userId   = "t***w"
-	id       = "201107889"
-	name     = "Magic Watch 2"
-	maxPrice = 860
-	addPrice = 3 // 加价间隔
-	cookie   = "shshshfpa=b8cc7f40-5852-c878-2008-202cb7b564aa-1576751256; shshshfpb=b8cc7f40-5852-c878-2008-202cb7b564aa-1576751256; mba_muid=1576642527839566679144; 3AB9D23F7A4B3C9B=MX3IRQ3GTOJTZWGF3WHRPHINBUVMCNIWU5CQR7J25IYYFJO5JJ57QBXR3KLXSC56VGZEDIZ3AURLP5S44YW3HXVQYY; shshshfp=e3c1b507580913054efdb15be6c61cc9; areaId=16; ipLoc-djd=16-1303-3484-0; __jdv=104464258|dbd.jinyiweb.com|-|referral|-|1579397542537; __jda=104464258.1576642527839566679144.1576642528.1579600241.1579660993.33; __jdc=104464258; __tak=6e970d662aebe7e73ce4edfb635f2f798148e555dd56c387dd71f40b93e314b6f2168d7445e9c12a331a92bcb81115ad84f6473bcf9011145bb203e7364b314f2764dad7a3de63dbbdb758d064385ac0; thor=A6CD0F6C27D13A138EBD4D18B8A97E3C532040F908F7342FDA073258B976394890E5FEE40B78F0E4B4F25E2E6BF60262A576894A4892C2927D6AE74959ED2A0FA604BD4DB15F980D6FB261B8FEEA846082D438B84830EB1EC5D16C6285F4C7E74ABDADDC5D703D4B322A7D23E98A71DEB5D0D61DC72080F6888937828FAD72BC; pin=tolsw; unick=%E6%B0%91%E9%97%B4%E5%8D%97%E5%AF%92%E5%B8%A6; __jdb=104464258.4.1576642527839566679144|33.1579660993"
-	token    = "rog9ibjwl70et0e54bd15796609923194i30~NmZeSyVEbFNSdHB0cldcAnh3BQpmRHpTBiUjb35DFm5vLUROOBEzLUF7G28iAAFBKBgVFA1EPwIVKDclGENXbm8iVlQiAwpTTx1lKSsTCG5vfmsaIx8/FV4dZWEYQwtub35rGmBRYUMCcCV0cAVbC3h1Bgs3X24QVnkhLiVUWAB9cgYOZgA7FD9jaxFmCB5fEWYNZHMANx0QJBtvaD1PWj4waxprOnQCBi0rYzQABEIsLRlbPgsKU08dZT0qPU8IEWYYWSQFIhgML2opIRUMWyFrBQhgV2ZGW3l+EWZNMRA9MGsaazp0GRc1Nz5+PU8eEWZHUQ1EbC1Bc3dhfE1bHn1oBxRlXwpTHmNrbyEFCUEqZg0aaFA3REFtZS43Q1cQPilTXmQTOklSM3V+NRQBC3wmQEI+VDJCB3YoLi8HBQYqLERVc0p0EkF7ZSsgWB5RI31ECjpTJwIOOSR/M1NcB3pyAQxjU2RGVnlzeykSBxBhZlNLP0RsU1o4ITdwUg4Bb2gVUSJEbFNSY2tvLggOEHdmDgFoXnQM|~1579661053706~1~20200120~eyJ2aXdlIjoiMCIsImJhaW4iOnsiaWMiOiIxIiwibGUiOiIxMDAiLCJjdCI6IjAiLCJkdCI6ImkifX0=~1~-231~miix|doei:,1,1,0,0,1,1000,-1000,1000,-1000;dmei:,1,1,1,1000,-1000,1000,-1000,1000,-1000;emc:;emcf:;ivli:;iivl:;ivcvj:;scvje:;1579661053223,1579661053702,0,0,0,0,0,0,0,0,0;jcnm"
+	id       = "216254052"
+	name     = "数据线"
+	maxPrice = 9
+	addPrice = 1 // 加价间隔
+	cookie   = ""
+	token    = ""
 )
 
 var (
@@ -97,7 +98,7 @@ func main() {
 			continue
 		}
 		remainTime := (ret.ActualEndTime - time.Now().UnixNano()/1000000) / 1000
-		fmt.Printf("No:%v     当前价格:%-6v出价者:%-10v剩余时间:%-8v最高价格:%-10v\n", id+"-"+name, ret.CurrentPrice, ret.CurrentBidder, remainTime, maxPrice)
+		fmt.Printf("No:%v     当前价格:%-6v出价者:%-10v剩余时间:%-8v接受最高价格:%-10v\n", id+"-"+name, ret.CurrentPrice, ret.CurrentBidder, remainTime, maxPrice)
 
 		if ret.CurrentPrice > maxPrice {
 			fmt.Println("超出最高价，退出竞拍")
@@ -134,11 +135,13 @@ func main() {
 		}
 	}
 	if ret, err := getPrice(); err != nil {
-		fmt.Println("次轮竞拍失败")
+		fmt.Println("竞拍失败")
 	} else {
-		remainTime := (ret.ActualEndTime - time.Now().UnixNano()/1000000) / 1000
-		fmt.Printf("No:%v     当前价格:%-6v出价者:%-10v剩余时间:%-10v最高价格:%-10v\n", id+"-"+name, ret.CurrentPrice, ret.CurrentBidder, remainTime, maxPrice)
+		fmt.Printf("竞拍已结束，用户%v以%v元的价格竞拍成功\n", ret.CurrentBidder, ret.CurrentPrice)
 	}
+	w := sync.WaitGroup{}
+	w.Add(1)
+	w.Wait()
 }
 
 func getPrice() (*Data, error) {

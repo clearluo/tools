@@ -11,10 +11,10 @@ import (
 func main() {
 	//Etf(0, 0.2, 0.05, 40, 0.15)
 	//InstallmentCal(15000, 12, 1329.2)
-	//Snowball(260, 0.15, 28)
+	//Snowball(10000, 0.15, 5)
 	//AnnualYield(14200, 16200, 5)
 	//YearRate()
-	Retire(100000000, 0.15, 0.04)
+	Retire(10000000, 0.15, 0.04)
 }
 
 // Snowball 计算现在x元在股市未来n年后的价值
