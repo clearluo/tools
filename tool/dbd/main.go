@@ -36,12 +36,12 @@ type Data struct {
 
 const (
 	userId   = "t***w"
-	id       = "216254052"
-	name     = "数据线"
-	maxPrice = 9
-	addPrice = 1 // 加价间隔
-	cookie   = ""
-	token    = ""
+	id       = "216651701"
+	name     = "小爱同学"
+	maxPrice = 52
+	addPrice = 3 // 加价间隔
+	cookie   = "shshshfpa=6339f04d-9797-cc8a-68fb-005de9e57b3d-1588983003; shshshfpb=b%20c6z31wQQyH2M1qE0bE2aQ%3D%3D; user-key=99d8cbba-aa16-46c6-b03a-1743a1866528; __jdu=15889830008982044370215; pinId=O6R_B8s_J3E; pin=tolsw; unick=%E6%B0%91%E9%97%B4%E5%8D%97%E5%AF%92%E5%B8%A6; _tp=gqQK%2Btk9D0R7L9OT%2B7S%2Bsw%3D%3D; _pst=tolsw; areaId=16; ipLoc-djd=16-1303-1305-53259; cn=187; unpl=V2_ZzNtbRVXE0UlXEZQfx1UUGJTFFwRUxMSdQFEXSwdXQMyVhZUclRCFnQUR1NnGFgUZwQZWERcRhxFCEdkexhdBGYCEFpBU3NMJVZGV3lFFzVXABJtQlZzFXEBT1xyG10EZgoaVEFWRhB3DkdXex1sNWAzIm1DZ0IldDgNOnpUXAFuChpUQFZCFHwAT1d6HFkHYQIRXUZnQiV2; __jdv=76161171|www.hao123.com|t_1000003625_hao123mz|tuiguang|f1aaae15559d4a70b5a61838f507dd58|1591346868275; shshshfp=6e6b6581defc453d0d3eee429ef5ae0b; __tak=52a1f8d0ec6aacddd42c72d92e14c3c37fb1e8580dd98f58f2e0205374d08d3f6278857bca233e60ef641ce129d187279e2abd695519728a04747c04bf8c742ced116cc8b11bc6af79325709cece7000; wlfstk_smdl=zvx0p7jhourgctsg1g568w4k6m8fmnnl; TrackID=1o-n_4ERKNTjtYRrpGfq5BehxzGpJlSGDiLIteLdl1Gp6mTnqs0eTfEtW9ic0YITuluuv_9rfe3ldY71AoKK8Y3Oxkd2C5W4A6EMsYbUwxts; thor=A6CD0F6C27D13A138EBD4D18B8A97E3C794CD84061A9306C05955B0D2FE298141F06482621DDDE6E305F5CB09D8C7D8ABA2AC2A15207997BEFA36118C08DC52B9286C77973C837B8F3A4C6C6F00BB030441693340750D1E8A5C579782FD9983394F733A885D8F6B54C0796219798DE20B4A1F61CC7215EE6027B47CBFA4FA430; ceshi3.com=201; logining=1; __jda=148612534.15889830008982044370215.1588983000.1591350306.1591576031.25; __jdc=148612534; 3AB9D23F7A4B3C9B=3TBAW6ZHHWSJU4EGOD4UMNJHUOC4LSYR32TLJRZNOVYMO6JFTTHPOSDVASOURI4PVTSWK62X5WQJ4K45EWTNNDPYXI; __jdb=148612534.5.15889830008982044370215|25.1591576031"
+	token    = "958w6zukc8rs9g5c7ql1591576029781vcf5~NmZeSyVEbFNSdH58cVZbA313Dg9iRHpTBiUjb35DFm5vLUROOBEzLUF7G28iAAFBKBgVFA1EPwIVKDclGENXbm8iVlQiAwpTTx1lKSsTCG5vfmsaIx8/FV4dZWEYQwtub35rGjBSNRBUJ3R0fFYJAHRyUgtkAmZIAiJ0fCYFVQF8IQZZMF9lGz9jaxFmCB5fEWYNZHMANx0QJBtvaD1PWj4waxprOnQBAig3LC1PB1ZjJ1hVDUR6LUExKRFmWzEQYiVCWyUPOR9OJSI5JQgBHX91AQ5lUWBGVB1lYRhDHUYRZg1kcw4iBRMyfRFmTTEQPS1rGms6dENTbXBhck1dHn1oAAANRCtTT2MiKSASChB3Zg5eOxd0XUEiNG9+Q1VdKz0PXWRXJEcSKTInLlEHWS9xBgooXm8UCycjJHAZGwV4cBUUcwV0S0ElN30mUwFROypFUmUOZhYTKy8kdVRUAnRzAwBoXmBEUXk9ITJDQRApN1kaa0QgR1Y7KyQrGU8eby1EGmtEZ1NPYy0kJ0NXEHR9Dg9zGw==|~1591576106531~1~20200318~eyJ2aXdlIjoiMCIsImJhaW4iOnsiaWMiOiIxIiwibGUiOiIxMDAiLCJjdCI6IjAiLCJkdCI6ImkifX0=~2~1077~8ii5|1d3c-ja,do,jb,dp;1d2y-jh,do,gx,3i;1dn-jj,do,gy,3i;2dn9;1dab-ji,do,4z,c;cw1-838,744;1dax-jj,dq,50,f;1dg-jh,du,14,h;1d9-jf,dw,12,k;1d7-je,dz,11,3;1da-jc,e4,y,8;1dd-j5,ec,r,g;1da-j2,ee,p,j;1d8-iw,el,4e,5;1d9-is,ep,49,9;1d8-il,ev,43,g;1df-id,f2,3u,n;1d8-i8,f8,3p,s;1dc-i2,fb,52,20;1d4-hr,fj,4r,4j;1dg-he,ft,4e,4s;1d8-h6,fy,47,4y;1d8-h1,g4,41,53;1d8-gy,g5,3y,54;1dg-gl,ge,3c,4;1d8-gg,gh,37,8;1d8-gc,gm,32,c;1d8-g8,gn,2y,e;1dg-g2,gs,2s,i;1d8-fy,gt,2p,j;1dh-fu,gw,2k,m;bdad-fg,h5,26,v;doei:,1,1,0,0,1,1000,-1000,1000,-1000;dmei:,1,1,1,1000,-1000,1000,-1000,1000,-1000;emc:,d:44;emmm:,d:4-0;emcf:,d:44;ivli:;iivl:;ivcvj:;scvje:;ewhi:;1591576103971,1591576106531,0,0,32,32,0,15,0,0,0;8y8f"
 )
 
 var (
@@ -97,8 +97,8 @@ func main() {
 		if err != nil {
 			continue
 		}
-		remainTime := (ret.ActualEndTime - time.Now().UnixNano()/1000000) / 1000
-		fmt.Printf("No:%v     当前价格:%-6v出价者:%-10v剩余时间:%-8v接受最高价格:%-10v\n", id+"-"+name, ret.CurrentPrice, ret.CurrentBidder, remainTime, maxPrice)
+		remainTime := float64(ret.ActualEndTime-time.Now().UnixNano()/1000000) / 1000.0
+		fmt.Printf("No:%v     当前价格:%-6v出价者:%-10v剩余时间:%-8.3f接受最高价格:%-10v\n", id+"-"+name, ret.CurrentPrice, ret.CurrentBidder, remainTime, maxPrice)
 
 		if ret.CurrentPrice > maxPrice {
 			fmt.Println("超出最高价，退出竞拍")
@@ -119,25 +119,28 @@ func main() {
 		if remainTime < 2 {
 			isSleep = false
 			price := ret.CurrentPrice + addPrice
-			retCode := 0
+			//retCode := 0
 			for price < maxPrice {
-				retCode = bidPrice(price)
-				if retCode == 302 {
-					continue // 连续出价不抬价
-				}
+				go bidPrice(price)
+				//retCode = bidPrice(price)
+				//if retCode == 302 {
+				//	continue // 连续出价不抬价
+				//}
 				price += addPrice
+				time.Sleep(time.Millisecond * 100)
 			}
 
-		} else {
-			//start := time.Now()
-			//bidPrice(ret.CurrentPrice + addPrice)
-			//fmt.Println("出价用时:", time.Since(start))
 		}
 	}
 	if ret, err := getPrice(); err != nil {
 		fmt.Println("竞拍失败")
 	} else {
-		fmt.Printf("竞拍已结束，用户%v以%v元的价格竞拍成功\n", ret.CurrentBidder, ret.CurrentPrice)
+		remainTime := float64(ret.ActualEndTime-time.Now().UnixNano()/1000000) / 1000.0
+		if remainTime < 0 {
+			fmt.Printf("竞拍已结束，用户%v以%v元的价格竞拍成功\n", ret.CurrentBidder, ret.CurrentPrice)
+		} else {
+			fmt.Printf("竞拍结束，当前价超出你能接受的最高价，当前价:%v\n", ret.CurrentPrice)
+		}
 	}
 	w := sync.WaitGroup{}
 	w.Add(1)
@@ -186,7 +189,7 @@ func bidPrice(price float64) (retCode int) {
 	}
 	retCode = ret.Code
 	if retCode != 200 {
-		err := fmt.Errorf("%v:%v", ret.Code, ret.Message)
+		err := fmt.Errorf("出价失败:%v:%v", ret.Code, ret.Message)
 		fmt.Println(err)
 		return
 	}
