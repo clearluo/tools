@@ -9,12 +9,12 @@ import (
 )
 
 func main() {
-	//Etf(0, 0.2, 0.05, 40, 0.15)
-	//InstallmentCal(15000, 12, 1329.2)
+	//Etf(500000, 10000, 0.1, 8, 0.2)
+	//InstallmentCal(2703.82, 12, 230.7)
 	//Snowball(10000, 0.15, 5)
 	//AnnualYield(14200, 16200, 5)
-	//YearRate()
-	Retire(10000000, 0.15, 0.04)
+	YearRate()
+	//Retire(10000000, 0.15, 0.04)
 }
 
 // Snowball 计算现在x元在股市未来n年后的价值
@@ -28,32 +28,30 @@ func Snowball(money float64, yearRate float64, yearCount int) float64 {
 }
 
 // Etf 每月定投股市收益计算
-// startMoney: 初始投入多少W
-// monthMoney：初使每月定存多少W
+// startMoney: 初始投入多少
+// monthMoney：初使每月定存多少
 // yearInc：每月投入以多少比例增加
 // (以年为单位递增，如：第一年每月投入1k，以0.05递增,那么第二年每月投入1.05k,第二年每月投入1.1025k)
 // yearCount：定存年数30
 // yearRate：期望平均年化复合收益率0.15
-// 返回值：总收入W
-func Etf(startMoney float64, monthMoney float64, yearInc float64, yearCount int, yearRate float64) float64 {
+func Etf(startMoney float64, monthMoney float64, yearInc float64, yearCount int, yearRate float64) {
 	var sumBase float64 = startMoney // 总本钱
 	var sum float64 = sumBase        // 总收益
 	for i := 1; i <= yearCount; i++ {
-		fmt.Printf("第%d年每月存入:%fW\n", i, monthMoney)
+		fmt.Printf("第%d年每月存入:%fW\n", i, monthMoney/10000)
 		sumBase += monthMoney * 12
 		for j := 1; j <= 12; j++ {
 			sum += monthMoney
 			sum += (sum * yearRate) / 12
-			fmt.Printf("第%d年,第%d个月:%.2fW\n", i, j, sum)
+			//fmt.Printf("第%d年,第%d个月:%.2fW\n", i, j, sum/10000)
 		}
 		monthMoney *= 1 + yearInc
-		//fmt.Printf("第%d年后投入总金额:%.2fW\n", i, sumBase)
-		//fmt.Printf("第%d年后总金额:%.2fW\n", i, sum)
+		//fmt.Printf("第%d年后投入总金额:%.2fW\n", i, sumBase/10000)
+		//fmt.Printf("第%d年后总金额:%.2fW\n", i, sum/10000)
 
 	}
-	fmt.Printf("总投入:%.2fW\n", sumBase)
-	fmt.Printf("总收益:%.2fW\n", sum)
-	return sum
+	fmt.Printf("总投入:%.2fW\n", sumBase/10000)
+	fmt.Printf("总收益:%.2fW\n", sum/10000)
 }
 
 // InstallmentCal 根据贷款总额和每月还款金额计算实际贷款年化利率
