@@ -36,12 +36,12 @@ type Data struct {
 
 const (
 	userId   = "t***w"
-	id       = "216651701"
-	name     = "小爱同学"
-	maxPrice = 52
+	id       = "218571604"
+	name     = "佳明935"
+	maxPrice = 69
 	addPrice = 3 // 加价间隔
-	cookie   = "shshshfpa=6339f04d-9797-cc8a-68fb-005de9e57b3d-1588983003; shshshfpb=b%20c6z31wQQyH2M1qE0bE2aQ%3D%3D; user-key=99d8cbba-aa16-46c6-b03a-1743a1866528; __jdu=15889830008982044370215; pinId=O6R_B8s_J3E; pin=tolsw; unick=%E6%B0%91%E9%97%B4%E5%8D%97%E5%AF%92%E5%B8%A6; _tp=gqQK%2Btk9D0R7L9OT%2B7S%2Bsw%3D%3D; _pst=tolsw; areaId=16; ipLoc-djd=16-1303-1305-53259; cn=187; unpl=V2_ZzNtbRVXE0UlXEZQfx1UUGJTFFwRUxMSdQFEXSwdXQMyVhZUclRCFnQUR1NnGFgUZwQZWERcRhxFCEdkexhdBGYCEFpBU3NMJVZGV3lFFzVXABJtQlZzFXEBT1xyG10EZgoaVEFWRhB3DkdXex1sNWAzIm1DZ0IldDgNOnpUXAFuChpUQFZCFHwAT1d6HFkHYQIRXUZnQiV2; __jdv=76161171|www.hao123.com|t_1000003625_hao123mz|tuiguang|f1aaae15559d4a70b5a61838f507dd58|1591346868275; shshshfp=6e6b6581defc453d0d3eee429ef5ae0b; __tak=52a1f8d0ec6aacddd42c72d92e14c3c37fb1e8580dd98f58f2e0205374d08d3f6278857bca233e60ef641ce129d187279e2abd695519728a04747c04bf8c742ced116cc8b11bc6af79325709cece7000; wlfstk_smdl=zvx0p7jhourgctsg1g568w4k6m8fmnnl; TrackID=1o-n_4ERKNTjtYRrpGfq5BehxzGpJlSGDiLIteLdl1Gp6mTnqs0eTfEtW9ic0YITuluuv_9rfe3ldY71AoKK8Y3Oxkd2C5W4A6EMsYbUwxts; thor=A6CD0F6C27D13A138EBD4D18B8A97E3C794CD84061A9306C05955B0D2FE298141F06482621DDDE6E305F5CB09D8C7D8ABA2AC2A15207997BEFA36118C08DC52B9286C77973C837B8F3A4C6C6F00BB030441693340750D1E8A5C579782FD9983394F733A885D8F6B54C0796219798DE20B4A1F61CC7215EE6027B47CBFA4FA430; ceshi3.com=201; logining=1; __jda=148612534.15889830008982044370215.1588983000.1591350306.1591576031.25; __jdc=148612534; 3AB9D23F7A4B3C9B=3TBAW6ZHHWSJU4EGOD4UMNJHUOC4LSYR32TLJRZNOVYMO6JFTTHPOSDVASOURI4PVTSWK62X5WQJ4K45EWTNNDPYXI; __jdb=148612534.5.15889830008982044370215|25.1591576031"
-	token    = "958w6zukc8rs9g5c7ql1591576029781vcf5~NmZeSyVEbFNSdH58cVZbA313Dg9iRHpTBiUjb35DFm5vLUROOBEzLUF7G28iAAFBKBgVFA1EPwIVKDclGENXbm8iVlQiAwpTTx1lKSsTCG5vfmsaIx8/FV4dZWEYQwtub35rGjBSNRBUJ3R0fFYJAHRyUgtkAmZIAiJ0fCYFVQF8IQZZMF9lGz9jaxFmCB5fEWYNZHMANx0QJBtvaD1PWj4waxprOnQBAig3LC1PB1ZjJ1hVDUR6LUExKRFmWzEQYiVCWyUPOR9OJSI5JQgBHX91AQ5lUWBGVB1lYRhDHUYRZg1kcw4iBRMyfRFmTTEQPS1rGms6dENTbXBhck1dHn1oAAANRCtTT2MiKSASChB3Zg5eOxd0XUEiNG9+Q1VdKz0PXWRXJEcSKTInLlEHWS9xBgooXm8UCycjJHAZGwV4cBUUcwV0S0ElN30mUwFROypFUmUOZhYTKy8kdVRUAnRzAwBoXmBEUXk9ITJDQRApN1kaa0QgR1Y7KyQrGU8eby1EGmtEZ1NPYy0kJ0NXEHR9Dg9zGw==|~1591576106531~1~20200318~eyJ2aXdlIjoiMCIsImJhaW4iOnsiaWMiOiIxIiwibGUiOiIxMDAiLCJjdCI6IjAiLCJkdCI6ImkifX0=~2~1077~8ii5|1d3c-ja,do,jb,dp;1d2y-jh,do,gx,3i;1dn-jj,do,gy,3i;2dn9;1dab-ji,do,4z,c;cw1-838,744;1dax-jj,dq,50,f;1dg-jh,du,14,h;1d9-jf,dw,12,k;1d7-je,dz,11,3;1da-jc,e4,y,8;1dd-j5,ec,r,g;1da-j2,ee,p,j;1d8-iw,el,4e,5;1d9-is,ep,49,9;1d8-il,ev,43,g;1df-id,f2,3u,n;1d8-i8,f8,3p,s;1dc-i2,fb,52,20;1d4-hr,fj,4r,4j;1dg-he,ft,4e,4s;1d8-h6,fy,47,4y;1d8-h1,g4,41,53;1d8-gy,g5,3y,54;1dg-gl,ge,3c,4;1d8-gg,gh,37,8;1d8-gc,gm,32,c;1d8-g8,gn,2y,e;1dg-g2,gs,2s,i;1d8-fy,gt,2p,j;1dh-fu,gw,2k,m;bdad-fg,h5,26,v;doei:,1,1,0,0,1,1000,-1000,1000,-1000;dmei:,1,1,1,1000,-1000,1000,-1000,1000,-1000;emc:,d:44;emmm:,d:4-0;emcf:,d:44;ivli:;iivl:;ivcvj:;scvje:;ewhi:;1591576103971,1591576106531,0,0,32,32,0,15,0,0,0;8y8f"
+	cookie   = "shshshfpa=6339f04d-9797-cc8a-68fb-005de9e57b3d-1588983003; shshshfpb=b%20c6z31wQQyH2M1qE0bE2aQ%3D%3D; user-key=99d8cbba-aa16-46c6-b03a-1743a1866528; __jdu=15889830008982044370215; pinId=O6R_B8s_J3E; pin=tolsw; unick=%E6%B0%91%E9%97%B4%E5%8D%97%E5%AF%92%E5%B8%A6; _tp=gqQK%2Btk9D0R7L9OT%2B7S%2Bsw%3D%3D; _pst=tolsw; cn=187; areaId=16; ipLoc-djd=16-1303-1305-53259; unpl=V2_ZzNtbUMFQkVwChVSKE5bUWIFFggSXhBBJwESAH0QXQMzVBdbclRCFnQUR1NnGV0UZgsZXkNcQRJFCEdkexhdBGYCEFpBU3NMJVZGV3lFFzVXABJtQlZzFXEBT1xyG10EZgoaVEFWRhB3DkdXex1sNWAzIm1DZ0IldDgNOnpUXAFuChpUQFZCFHwAT1d6HFkHYQIRXUZnQiV2; __jdv=76161171|www.hao123.com|t_1000003625_hao123mz|tuiguang|0c0a43b7bf6e475da8bec8ee7807ef47|1591752035913; shshshfp=6e6b6581defc453d0d3eee429ef5ae0b; __tak=725360ce8f25a81142c533d1bf62895748669df9e0622680547ab747ab272ee31031fc7c64a446ed34e4fc0ca441d254f335682e501c63a5cca6d1e7e756f7368fdf6cda1d55314c67fdb885d0dfc642; wlfstk_smdl=9q4umu5kylsub67r8zedtmpt70t6whr5; TrackID=1g062xhpg7oneV-71eGRHB68Ds6ziQzIbnMyBX2fD36Rxd0pOcnt7x6_jlZ8yS3olekH_CcVufGXWf2jR-UIcQYAnvJ4VHye966we2RZfM84; thor=A6CD0F6C27D13A138EBD4D18B8A97E3CA15CCD78A63A95F690E8A7BD4A99C977FE2CA366E2A2A4E6555723A1A57E6D15DF35BAC32AF5C9F03E20772DF7B2C0770C84503207525DE4C978E5615FC55BB834FE432EBDCA30FB46F3C9EA2308ECA628FBB43B740D566C0F0D74592675BDA925C4E62F00526B162A11B79ED0396C12; ceshi3.com=201; logining=1; __jda=148612534.15889830008982044370215.1588983000.1591752036.1591785075.29; __jdc=148612534; 3AB9D23F7A4B3C9B=3TBAW6ZHHWSJU4EGOD4UMNJHUOC4LSYR32TLJRZNOVYMO6JFTTHPOSDVASOURI4PVTSWK62X5WQJ4K45EWTNNDPYXI; __jdb=148612534.5.15889830008982044370215|29.1591785075"
+	token    = "8fo1qp2d29nkt0g6jkq1591785074681rf80~NmZeSyVEbFNSdH58c1lYA353BwpoRHpTBiUjb35DFm5vLUROOBEzLUF7G28iAAFBKBgVFA1EPwIVKDclGENXbm8iVlQiAwpTTx1lKSsTCG5vfmsaIx8/FV4dZWEYQwtub35rGjJTZxNXeHF1IgdYBX11AAlmA2YUASJyL3JUXlcpcVIJYhQ0CD9jaxFmCB5fEWYNZHMANx0QJBtvaD1PWj4waxprOnQBAig3LC1PB1ZjJ1hVDUR6LUExKRFmWzEQYiVCWyUPOR9OJSI5JQgBHX91AQ9oX2VAVB1lYRhDHUYRZg1kcw4iBRMyfRFmTTEQPS1rGms6dENTbXBhck1dHn1oAAANRCtTT2MiKSASChB3Zg4IOxB0XUEiNG9+QxkGInFFSmFWbxZQMTIgIBYYQSRyU147UGAdDywwez4LGlErKxUUcwV0S0ElN30mUwFROypFUmUOZhYTKy8kdVRUAnRzAwBoXmBEUXk9ITJDQRApN1kaa0Q4HFY7LCkvVk8eby1EGmtEZ1NPYy0kJ0NXEHR9Dg9zGw==|~1591785137468~1~20200318~eyJ2aXdlIjoiMCIsImJhaW4iOnsiaWMiOiIxIiwibGUiOiIxMDAiLCJjdCI6IjAiLCJkdCI6ImkifX0=~2~1645~5iiz|1d2s-qc,4c,qc,4d;1d33-sb,2v,sc,2w;1dp-s8,2u,s9,2v;1d27-ro,2o,ro,2o;1d25-qp,r,o2,r;1da-ql,l,ny,l;1d13-qg,1,nt,2;2d1d6;cw9c-838,657;1d6f-n7,p,n8,q;1d7-n6,p,n7,q;1d8-n5,r,n5,r;1d8-n3,s,n3,s;1dh-my,w,mz,w;1d6-mw,z,mx,z;1d8-mt,12,mu,9;1d8-mq,17,mr,d;1dh-mk,1j,26,0;1d8-mh,1o,23,5;1d8-me,1w,21,c;1d8-ma,21,1x,i;1dg-m6,2f,1t,w;1d8-m4,2m,m4,1s;1d8-m2,2s,m2,1y;1d7-m0,2y,m1,25;1da-lz,32,lz,28;1df-lv,3d,v,2;1d9-lu,3i,v,7;1d6-lu,3l,v,9;1dh-lu,3v,v,j;1dn-m1,3w,11,k;1d5e-ma,3n,1a,b;1d9-ma,3p,1a,d;1d2x-j2,9y,4k,4;1d2o-hf,g1,j,3w;1d2o-h6,gx,3w,6;1d2y-g5,i2,g5,i3;1d6i-fs,i4,ft,i5;1d1q-fu,hl,2l,u;1d6r-fv,hd,2m,m;1d1l-fv,h7,2m,g;bd43-fv,h4,2m,d;doei:,1,1,0,0,1,1000,-1000,1000,-1000;dmei:,1,1,1,1000,-1000,1000,-1000,1000,-1000;emc:,d:120;emmm:,d:0-0;emcf:,d:120;ivli:;iivl:;ivcvj:;scvje:;ewhi:;1591785133025,1591785137468,0,0,42,42,0,81,0,0,0;0egp"
 )
 
 var (
@@ -99,7 +99,6 @@ func main() {
 		}
 		remainTime := float64(ret.ActualEndTime-time.Now().UnixNano()/1000000) / 1000.0
 		fmt.Printf("No:%v     当前价格:%-6v出价者:%-10v剩余时间:%-8.3f接受最高价格:%-10v\n", id+"-"+name, ret.CurrentPrice, ret.CurrentBidder, remainTime, maxPrice)
-
 		if ret.CurrentPrice > maxPrice {
 			fmt.Println("超出最高价，退出竞拍")
 			break
@@ -119,15 +118,9 @@ func main() {
 		if remainTime < 2 {
 			isSleep = false
 			price := ret.CurrentPrice + addPrice
-			//retCode := 0
 			for price < maxPrice {
 				go bidPrice(price)
-				//retCode = bidPrice(price)
-				//if retCode == 302 {
-				//	continue // 连续出价不抬价
-				//}
 				price += addPrice
-				time.Sleep(time.Millisecond * 100)
 			}
 
 		}
@@ -148,6 +141,10 @@ func main() {
 }
 
 func getPrice() (*Data, error) {
+	start := time.Now()
+	defer func() {
+		fmt.Println("查询价格用时：", time.Since(start))
+	}()
 	resp, err := queryClient.Do(queryHead)
 	if err != nil {
 		fmt.Println(err.Error())
