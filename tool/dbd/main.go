@@ -121,8 +121,8 @@ func main() {
 			for price < maxPrice {
 				go bidPrice(price)
 				price += addPrice
+				time.Sleep(time.Millisecond * 2)
 			}
-
 		}
 	}
 	if ret, err := getPrice(); err != nil {
