@@ -7,7 +7,6 @@ import (
 	"net/http"
 	"net/url"
 	"strings"
-	"sync"
 	"time"
 )
 
@@ -135,9 +134,7 @@ func main() {
 			fmt.Printf("竞拍结束，当前价超出你能接受的最高价，当前价:%v\n", ret.CurrentPrice)
 		}
 	}
-	w := sync.WaitGroup{}
-	w.Add(1)
-	w.Wait()
+	select {}
 }
 
 func getPrice() (*Data, error) {
