@@ -42,7 +42,8 @@ func History(startMoney float64, code int, startTime int) {
 		freeShare = sumShare * row.SharePer
 		// 计算可够买多少股
 		tmpMoney := blance + freeMoney // 本次可购买的总金额
-		buyShare = math.Floor(tmpMoney / row.Price)
+		buyShare = math.Floor(tmpMoney / (row.Price * 100))
+		buyShare *= 100
 		// 计算余额
 		blance = tmpMoney - (buyShare * row.Price)
 		// 计算总股数
