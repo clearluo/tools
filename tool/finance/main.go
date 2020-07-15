@@ -18,9 +18,12 @@ func main() {
 	//AnnualYield(500000, 954810, 2)
 	//YearRate()
 	//Retire(1000000, 0.15, 0.04)
-	History(500000, 600519, 20010827)
+	History(500000, 2, 19910129)
 }
 func History(startMoney float64, code int, startTime int) {
+	// 600519 贵州茅台-20010827
+	// 601318 中国平安-20070301
+	// 000002 万科A-19910129
 	rows, err := history.GetHistoryByCodeAndTime(code, startTime)
 	if err != nil || len(rows) < 1 {
 		fmt.Println(err, " or rows is null")
@@ -50,7 +53,7 @@ func History(startMoney float64, code int, startTime int) {
 		sumShare += buyShare + freeShare
 		// 计算总市值
 		sumMoney = sumShare*row.Price + blance
-		fmt.Printf("%-9d 价格:%-8.2f 赠股:%-8.2f 分红买股:%-6.0f 持股:%-10.2f 市值年涨幅:%7.2f%%  总市值:%.0fW\n", row.DayTime, row.Price, freeShare, buyShare, sumShare, (sumMoney-tmpSumMoney)/tmpSumMoney*100, sumMoney/10000)
+		fmt.Printf("%-9d 价格:%-8.2f 赠股:%-8.2f 分红:%6.2fW 分红买股:%-6.0f 持股:%-10.2f 市值年涨幅:%7.2f%%  总市值:%.0fW\n", row.DayTime, row.Price, freeShare, freeMoney/10000, buyShare, sumShare, (sumMoney-tmpSumMoney)/tmpSumMoney*100, sumMoney/10000)
 	}
 	startYear := startTime / 10000
 	endYear := time.Now().Year()
