@@ -1,20 +1,59 @@
 package main
 
 import (
+	_ "finance/db"
+	"finance/db/history"
 	"fmt"
 	"io/ioutil"
 	"math"
 	"strconv"
 	"strings"
+	"time"
 )
 
 func main() {
-	//Etf(0, 2000, 0.05, 40, 0.12)
-	//Snowball(51900, 0.12, 34)
-	//InstallmentCal(2703.82, 12, 230.7)
-	//AnnualYield(500000, 50000000, 19)
-	YearRate()
-	//Retire(10000000, 0.15, 0.04)
+	//Etf(500000, 4000, 0.05, 8, 0.2)
+	//Snowball(1, 0.1217, 28)
+	//InstallmentCal(4500, 12, 385.35)
+	//AnnualYield(500000, 954810, 2)
+	//YearRate()
+	//Retire(1000000, 0.15, 0.04)
+	History(500000, 600519, 20010827)
+}
+func History(startMoney float64, code int, startTime int) {
+	rows, err := history.GetHistoryByCodeAndTime(code, startTime)
+	if err != nil || len(rows) < 1 {
+		fmt.Println(err, " or rows is null")
+		return
+	}
+	fmt.Printf("自%v开始买入%vW的%v股票，每年分红当天以收盘价分红投入，历史收益明细\n", startTime, startMoney/10000, rows[0].Name)
+
+	var sumMoney float64 = startMoney // 总市值
+	var sumShare float64              // 总股数
+	var freeShare float64             // 转送股数
+	var freeMoney float64             // 分红金额
+	var buyShare float64              // 购买股数
+	var blance float64 = startMoney   // 余额
+	for _, row := range rows {
+		tmpSumMoney := sumMoney
+		// 计算分红金额
+		freeMoney = sumShare * row.MoneyPer
+		// 计算赠送多少股
+		freeShare = sumShare * row.SharePer
+		// 计算可够买多少股
+		tmpMoney := blance + freeMoney // 本次可购买的总金额
+		buyShare = math.Floor(tmpMoney / row.Price)
+		// 计算余额
+		blance = tmpMoney - (buyShare * row.Price)
+		// 计算总股数
+		sumShare += buyShare + freeShare
+		// 计算总市值
+		sumMoney = sumShare*row.Price + blance
+		fmt.Printf("%-9d 价格:%-8.2f 赠股:%-8.2f 分红买股:%-6.0f 持股:%-10.2f 市值年涨幅:%7.2f%%  总市值:%.0fW\n", row.DayTime, row.Price, freeShare, buyShare, sumShare, (sumMoney-tmpSumMoney)/tmpSumMoney*100, sumMoney/10000)
+	}
+	startYear := startTime / 10000
+	endYear := time.Now().Year()
+	AnnualYield(startMoney, sumMoney, endYear-startYear)
 }
 
 // Snowball 计算现在x元在股市未来n年后的价值
@@ -45,7 +84,7 @@ func Etf(startMoney float64, monthMoney float64, yearInc float64, yearCount int,
 		for j := 1; j <= 12; j++ {
 			sum += monthMoney
 			yearSum += (sum * yearRate) / 12
-			//fmt.Printf("第%d年,第%d个月:%.2fW\n", i, j, sum/10000)
+			//fmt.Printf("第%d年,第%d个月:%.2fW\n", i, j, (sum+yearSum)/10000)
 		}
 		sum += yearSum
 		monthMoney *= 1 + yearInc
