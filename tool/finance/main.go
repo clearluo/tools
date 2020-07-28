@@ -12,18 +12,19 @@ import (
 )
 
 func main() {
-	//Etf(500000, 4000, 0.05, 8, 0.2)
-	//Snowball(1, 0.1217, 28)
-	//InstallmentCal(4500, 12, 385.35)
-	//AnnualYield(500000, 954810, 2)
+	//Etf(0, 505, 0.00, 10, 0.33)
+	//Snowball(2000000, 0.10, 28)
+	InstallmentCal(4500, 12, 385.35)
+	//AnnualYield(5000000, 10000000000, 25)
 	//YearRate()
 	//Retire(1000000, 0.15, 0.04)
-	History(500000, 2, 19910129)
+	History(1000000, 600036, 20020409, false)
 }
-func History(startMoney float64, code int, startTime int) {
+func History(startMoney float64, code int, startTime int, isJoin bool) {
 	// 600519 贵州茅台-20010827
 	// 601318 中国平安-20070301
 	// 000002 万科A-19910129
+	// 600036 招商银行-20020409
 	rows, err := history.GetHistoryByCodeAndTime(code, startTime)
 	if err != nil || len(rows) < 1 {
 		fmt.Println(err, " or rows is null")
@@ -38,6 +39,19 @@ func History(startMoney float64, code int, startTime int) {
 	var buyShare float64              // 购买股数
 	var blance float64 = startMoney   // 余额
 	for _, row := range rows {
+		if row.Typ == 1 {
+			if !isJoin {
+				fmt.Printf("%v不参与增发配售\n", row.DayTime)
+				continue
+			}
+			tmpSumMoney := sumMoney
+			addShare := sumShare * row.SharePer
+			costMoney := addShare * row.Price
+			sumShare += addShare
+			sumMoney = sumShare*row.Price + blance
+			fmt.Printf("%-9v 价格:%-8.2f 配股:%-8.2f 花费:%6.2fW 分红买股:%-6.0v 持股:%-10.2f 市值涨幅:%7.2f%%  总市值:%.0fW\n", fmt.Sprintf("%v*", row.DayTime), row.Price, addShare, costMoney/10000, 0, sumShare, (sumMoney-tmpSumMoney)/tmpSumMoney*100, sumMoney/10000)
+			continue
+		}
 		tmpSumMoney := sumMoney
 		// 计算分红金额
 		freeMoney = sumShare * row.MoneyPer
@@ -53,7 +67,7 @@ func History(startMoney float64, code int, startTime int) {
 		sumShare += buyShare + freeShare
 		// 计算总市值
 		sumMoney = sumShare*row.Price + blance
-		fmt.Printf("%-9d 价格:%-8.2f 赠股:%-8.2f 分红:%6.2fW 分红买股:%-6.0f 持股:%-10.2f 市值年涨幅:%7.2f%%  总市值:%.0fW\n", row.DayTime, row.Price, freeShare, freeMoney/10000, buyShare, sumShare, (sumMoney-tmpSumMoney)/tmpSumMoney*100, sumMoney/10000)
+		fmt.Printf("%-9d 价格:%-8.2f 赠股:%-8.2f 分红:%6.2fW 分红买股:%-6.0f 持股:%-10.2f 市值涨幅:%7.2f%%  总市值:%.0fW\n", row.DayTime, row.Price, freeShare, freeMoney/10000, buyShare, sumShare, (sumMoney-tmpSumMoney)/tmpSumMoney*100, sumMoney/10000)
 	}
 	startYear := startTime / 10000
 	endYear := time.Now().Year()
