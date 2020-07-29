@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `history` (
   `buy_price` double DEFAULT '0' COMMENT '增发配售价格',
   PRIMARY KEY (`id`),
   KEY `dayTime` (`day_time`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=102 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=105 DEFAULT CHARSET=utf8;
 
 -- 正在导出表  stock.history 的数据：~101 rows (大约)
 /*!40000 ALTER TABLE `history` DISABLE KEYS */;
@@ -137,7 +137,10 @@ INSERT INTO `history` (`id`, `code`, `name`, `day_time`, `typ`, `price`, `divide
 	(98, 600036, '招商银行', 20190712, 0, 35.4, '10派9.4元', 0, 0.94, 0),
 	(99, 600036, '招商银行', 20200710, 0, 37.25, '10派12元', 0, 1.2, 0),
 	(100, 600036, '招商银行', 20130905, 1, 10.66, '10配1.74股', 0.174, 0, 9.29),
-	(101, 600036, '招商银行', 20100315, 1, 14.89, '10配1.3股', 0.13, 0, 8.85);
+	(101, 600036, '招商银行', 20100315, 1, 14.89, '10配1.3股', 0.13, 0, 8.85),
+	(102, 2, '万科A', 20000110, 1, 11.44, '10配2.727股', 0.2727, 0, 7.5),
+	(103, 2, '万科A', 19970714, 1, 15.6, '10配2.37股', 0.237, 0, 4.5),
+	(104, 2, '万科A', 19910601, 1, 11.29, '10配5股', 0.5, 0, 4.4);
 /*!40000 ALTER TABLE `history` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

@@ -31,7 +31,7 @@ func init() {
 	appDb.DB().SetMaxOpenConns(100)
 	appDb.DB().SetMaxIdleConns(30)
 	appDb.DB().SetConnMaxLifetime(time.Second * 30)
-	appDb.ShowSQL(true) // debug 模式，打印执行的 sql
+	//appDb.ShowSQL(true) // debug 模式，打印执行的 sql
 	//appDb.Logger().SetLevel(xormlog.LOG_DEBUG)
 	if err := appDb.DB().Ping(); err != nil {
 		err = fmt.Errorf("xorm ping err:%v", err)
