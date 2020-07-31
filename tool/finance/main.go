@@ -16,9 +16,9 @@ func main() {
 	//Snowball(2000000, 0.10, 28)
 	//InstallmentCal(4500, 12, 385.35)
 	//AnnualYield(5000000, 10000000000, 25)
-	//YearRate()
-	//Retire(1000000, 0.15, 0.04)
-	History(1000000, 600036, 20020409, true)
+	YearRate()
+	//Retire(500000000, 0.15, 0.04)
+	//History(1000000, 601318, 20080808, false)
 }
 func History(startMoney float64, code int, startTime int, isJoin bool) {
 	// 600519 贵州茅台-20010827
