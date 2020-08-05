@@ -35,12 +35,12 @@ type Data struct {
 
 const (
 	userId   = "t***w"
-	id       = "222578385"
-	name     = "Master2S"
-	maxPrice = 239
+	id       = "224404803"
+	name     = "B&O音响"
+	maxPrice = 599
 	addPrice = 3 // 加价间隔
-	cookie   = "pinId=O6R_B8s_J3E; shshshfpa=d9396e71-77e5-0d91-f212-08f43a6787fb-1594431682; __jdu=1594431679963119011653; shshshfpb=pCb1F%20bWkBQmteQYOsYxeqw%3D%3D; user-key=7f4db9d7-1636-495f-b16a-75f63b45a938; cn=0; areaId=16; ipLoc-djd=16-1303-3483-0; unpl=V2_ZzNtbUdRFxIhC0JXLhxeUGJUG1VKAkdFIQ8VV3pLXwdnARdUclRCFnQUR1JnGVsUZwMZWEZcRhZFCEdkexhdBGYCEFpBU3NMJVZGV3lFFzVXABJtQlZzFXEAQ1F5GVsDbwsVX0JXSxR1CEFQeSlsAlczIlxyVnMURUMoVTYZWA1iBhBdRVFLHXIKRlRzGFwFYAcQbUNnQA%3d%3d; __jdv=76161171|www.hao123.com|t_1000003625_hao123mz|tuiguang|47e6e252d43d4f899d5ae6b20c231348|1594871142180; shshshfp=f29d17d857ae68206626f19fb892a433; __tak=aada616649dad71f7d4061bcae371e1f212e01934ead4e9e7fe971fbdd54654e00ba03954778bc5bcc73aa5d9dd01c470f0dd36bfdd393effc92f95cd52ba177959fa20c5e81a2dbf511b5bdfcbdac7e; wlfstk_smdl=6hhn199kwn8dp2odte6dsyntv31cmxms; TrackID=1naol_ya94MMBq0koYo7_C-JwaoL9ZZp_GYjneZ7w6OrbPSs59zuhf94zgKhm62LIWIyJ__ymmj9QY1xzj7VWvK79v1IibYws9fpPx-_JYmo; thor=A6CD0F6C27D13A138EBD4D18B8A97E3C417181ACDD0E70F7C23AC31477C84BAFFC6261DBFFD1FBF32759B482B6C59DCD64FBCC3CFA66281F68CE4FD8AB0E8E23CBE9F5028E7EF2587EFA047E75D32B6B921AC92960E89C8374C594B22AE64E80F442D0A80096A75697A7FA61E5945A2B1690E8D7C37BBBCB6B2CC9FDF5FBA37A; pin=tolsw; unick=%E6%B0%91%E9%97%B4%E5%8D%97%E5%AF%92%E5%B8%A6; ceshi3.com=201; _tp=gqQK%2Btk9D0R7L9OT%2B7S%2Bsw%3D%3D; logining=1; _pst=tolsw; __jda=148612534.1594431679963119011653.1594431679.1595310338.1595466844.6; __jdc=148612534; 3AB9D23F7A4B3C9B=3TBAW6ZHHWSJU4EGOD4UMNJHUOC4LSYR32TLJRZNOVYMO6JFTTHPOSDVASOURI4PVTSWK62X5WQJ4K45EWTNNDPYXI; __jdb=148612534.7.1594431679963119011653|6.1595466844"
-	token    = "ru1q8p6iacywm3nf7cy15953103379671sao~NmZeSyVEbFNSdH54cFdaAntxAgtiRHpTBiUjb35DFm5vLUROOBEzLUF7G28iAAFBKBgVFA1EPwIVKDclGENXbm8iVlQiAwpTTx1lKSsTCG5vfmsaIx8/FV4dZWEYQwtub35rGjVRZEIFJH4ufAJUVn8mUVliBzMXUHgkfSUHDFcsfQAIPQ4jRj9jaxFmCB5fEWYNZHMANx0QJBtvaD1PWj4waxprOnQBAig3LC1PB1ZjJ1hVDUR6LUExKRFmWzEQYiVCWyUPOR9OJSI5JQgBHX92BQ1mXmVJVh1lYRhDHUYRZg1kcw4iBRMyfRFmTTEQPS1rGms6dENTbXBhck1dHn1oAAANRCtTT2MiKSASChB3Zg4IOwd0XUEiNG9+QwpYeSAHSDgRZBASKC0hPQ0LBSo8Ul83CmYLUy03eycAB0E8IxUUcwV0S0ElN30mUwFROypFUmUOZhYTKy8kdVRUAnRzAwBoXmBEUXk9ITJDQRApN1kaa0QwGVY7LCkrCU8eby1EGmtEZ1NPYy0kJ0NXEHR9Dg9zGw==|~1595467089346~1~20200318~eyJ2aXdlIjoiMCIsImJhaW4iOnsiaWMiOiIxIiwibGUiOiIxMDAiLCJjdCI6IjAiLCJkdCI6ImkifX0=~2~1392~uii5|1d2z-l4,bd,l4,bd;1dc2-l0,b2,gi,3z;1da-kg,9y,1a,r;1dp-j4,7t,1c,a;1d34-gg,3h,c5,5;1dc-gg,3e,c5,3;1dh-gg,3a,ca,2g;1dg-gg,33,ca,2a;1dh-gg,31,ca,27;1d1u-gf,2n,ca,1u;1df-ge,2m,c9,1t;1d41-g8,2o,c2,1u;1d6-ft,2p,bo,1v;1dl-ff,2o,ba,1u;1dd-f1,2m,aw,1s;1dh-en,2j,44,t;1dh-e6,2g,3n,p;1dh-do,2a,34,k;1d3f-co,1x,24,6;1dl-9t,k,59,k;1d2q-9k,6,4z,7;1d2-9g,2,4w,2;1d1f3-ee,4,9u,4;1dh-ej,i,9z,j;1dg-em,t,a2,t;1dh-eq,16,al,d;1dh-eu,1e,ap,l;1dg-ez,1o,au,4;1dh-f1,1u,4i,4;1dh-f6,24,4n,d;1dx-fk,2v,bf,22;1d2s-hk,5k,d9,y;1d2s-l3,8f,1b,x;1d2s-ne,8d,5u,w;cwe1-1088,588;1db2v-tl,9n,5,2o;1d10-os,9q,a9,d;1d2s-n9,66,aa,g;1d2s-qy,q,qy,q;1drr-z0,1m,1c,2;cw0-1536,818;1di-z1,1m,1d,2;1d2k-z1,1n,1d,3;1d2j-z3,2a,e,m;1d2s-zb,41,1m,p;1d2s-102,6d,1c,m;1dpx-104,73,24,5;cwz-1144,818;1d2d-v3,82,1d,u;1d1e-oe,9p,9v,c;1dm5-f6,ib,n,6;bdq6-g5,hu,36,6u;0d2j-g5,hu,36,6u;1d3o-g6,hu,36,6t;bdfw-g8,h6,2z,w;doei:,1,1,0,0,1,1000,-1000,1000,-1000;dmei:,1,1,1,1000,-1000,1000,-1000,1000,-1000;emc:,d:242;emmm:,d:30-0;emcf:,d:242;ivli:;iivl:;ivcvj:;scvje:;ewhi:;1595467065531,1595467089346,0,0,55,55,0,193,0,0,0;44n6"
+	cookie   = "pinId=O6R_B8s_J3E; shshshfpa=d9396e71-77e5-0d91-f212-08f43a6787fb-1594431682; __jdu=1594431679963119011653; shshshfpb=pCb1F%20bWkBQmteQYOsYxeqw%3D%3D; user-key=7f4db9d7-1636-495f-b16a-75f63b45a938; cn=0; pin=tolsw; unick=%E6%B0%91%E9%97%B4%E5%8D%97%E5%AF%92%E5%B8%A6; _tp=gqQK%2Btk9D0R7L9OT%2B7S%2Bsw%3D%3D; _pst=tolsw; unpl=V2_ZzNsbUAASxBwW04GZxhVBG4fFwlKBV8ddAgTSHIYVVdgBRZbQwVLQWlJKFRzEVQZJkB8XkdTSgklTShUeB1dAmIzEVxBVl8UcxREVGoZVA5mAhlfSmdDJXUJR1V6Gl4HbgcibXJXQSV0OEZQcxxZB2cEFFVKUEEVdQBHVHseWAdXVkYJEVFBFncUFld%2FTEAANwpHQUsDQRZpABYGKx0OBGNXEllEZ0UT; __jdv=122270672|kong|t_1000023385_125064|zssc|3f944b9c-0808-4e9c-901d-808c67570c9e-p_1999-pr_2458-at_125064|1596193239921; PCSYCityID=CN_350000_350100_350102; shshshfp=f29d17d857ae68206626f19fb892a433; __tak=fc842d2fdaa57db822e1fe7792c43f03c1cbe715bf5313b67797f203c2d7d3586d3726d75300e90ddf03457ae1d1922514f73d7044a3c425bed3903813407e67ae7be4837c31808743257e8bc4268c83; wlfstk_smdl=xbn7yovxiawz4sbcetr3kvbkm4sdz0cw; TrackID=1po1X5Ud-I6JPtU87ZHW2ra_6A15cegLq0Q5Uf1VZ7cAoSve2R_I_ojxSn8NO4qsa8TTpT6BP8Kpof_JkBNGpaC5oinvlbjGfI3EZ9ABgwjc; thor=A6CD0F6C27D13A138EBD4D18B8A97E3C4DA6609DA28A55CDC5CD3A5EEAF7FCE2F4280774E6202F65CDE234C1535ADC61EF003C6B6059C87BB5C47114BC67BB5307324AF9EA00EF08170FE9987BFFA6D3D74CA99CD0E53B50D9F760C649BEFFB31E3A8FBED42D0612359CFD16EA05B04A50206289433729F5352F7FE87B1FCDBD; ceshi3.com=201; logining=1; __jda=148612534.1594431679963119011653.1594431679.1596193240.1596592095.12; __jdb=148612534.5.1594431679963119011653|12.1596592095; __jdc=148612534; 3AB9D23F7A4B3C9B=3TBAW6ZHHWSJU4EGOD4UMNJHUOC4LSYR32TLJRZNOVYMO6JFTTHPOSDVASOURI4PVTSWK62X5WQJ4K45EWTNNDPYXI"
+	token    = "5kywbk328kkhlqopo6x1596592094034yehd~NmZeSyVEbFNSdH57cVhfA3p3BgFlRHpTBiUjb35DFm5vLUROOBEzLUF7G28iAAFBKBgVFA1EPwIVKDclGENXbm8iVlQiAwpTTx1lKSsTCG5vfmsaYlNvQVMdZWEYQwtub35rGjVRZEIFJH4ufAJUVn8mUVliBzMXUHgkfSUHDFcsfQAIPQ4jRj9jaxFmCB5fEWYNZHMANx0QJBtvaD1PWj4waxprOnQBAig3LC1PB1ZjJ1hVDUR6LUExKRFmWzEQYiVCWyUPOR9OJSI5JQgBHX92Aw1iU29BUx1lYRhDHUYRZg1kcw4iBRMyfRFmTTEQPS1rGms6dENTbXBhck1dHn1oAAANRCtTT2MiKSASChB3ZgIIOx90XUEiNG9+QxpdOnJGWilUYRlaeXU6MFUXVXwmQFowAzRHACkxdSgVWFQ9IhUUcwV0S0ElN30mUwFROypFUmUOZhYTKy8kdVRUAnRzAwBoXmBEUXk9ITJDQRApN1kaa0QjQVY3LCkgBk8eby1EGmtEZ1NPYy0kJ0NXEHR9Dg9zGw==|~1596592178575~1~20200318~eyJ2aXdlIjoiMCIsImJhaW4iOnsiaWMiOiIxIiwibGUiOiIxMDAiLCJjdCI6IjAiLCJkdCI6ImkifX0=~2~-1031~fii0|1d3g-og,bj,oh,bk;1d3m-of,bj,jw,1b;1ddd-oi,bh,3c,g;1da-oj,bg,3d,g;1d6-ol,bf,3f,f;1dd-oo,be,3i,d;1di-os,bc,3l,c;1de-p7,b7,41,7;1dc-pc,b5,46,4;1de-pu,ay,8k,59;1dh-q8,au,8x,54;1dp-qy,aj,9o,1r;1d9-sa,9y,b0,16;1dg-st,9q,a0,d;1dj-tu,97,ck,f;1dg-uo,8v,de,3;1de-vl,8n,p,17;1dh-w1,8l,15,14;1d1i-wk,8l,1p,14;1d5-wl,8m,1p,15;1do-wl,8o,1p,17;1dh-wk,8r,1o,1b;1dh-wh,8u,f7,2;1dg-wc,92,f2,9;1dh-w7,96,ex,d;1dh-w0,9c,19,-1;1dg-vx,9e,16,2;1dh-vs,9i,10,6;1dh-vn,9m,w,9;1dg-vi,9p,r,c;1dh-vc,9r,l,f;1d2s-v1,9y,dr,15;1d2s-ui,a4,d8,1b;1d2s-uk,9y,d9,16;1d2s-wl,8i,1p,12;1d42-xf,89,t5,2j;1d1l-xc,87,t1,2i;2daz;1d6j-xb,87,t1,2i;1d1v-wo,8f,1s,z;cwx-1019,722;1dn4-s0,9k,s0,9k;1dw-pt,9z,cu,17;1d2y-kd,ay,3d,0;1d2p-id,cb,4,6;1d2n-h4,e2,7,2e;1d2z-g6,f7,1n,s;1d2v-ft,fx,2u,4w;1d2o-fk,gg,2b,7;bd10e-fk,gi,2a,9;doei:,1,1,0,0,1,1000,-1000,1000,-1000;dmei:,1,1,1,1000,-1000,1000,-1000,1000,-1000;emc:,d:148;emmm:,d:37-0;emcf:,d:148;ivli:;iivl:;ivcvj:;scvje:;ewhi:;1596592173191,1596592178575,0,0,50,50,0,101,0,0,0;uku3"
 )
 
 var (
@@ -102,7 +102,7 @@ func main() {
 			fmt.Println("超出最高价，退出竞拍")
 			break
 		}
-		if remainTime < 0 {
+		if remainTime < -1 {
 			fmt.Println("竞拍结束")
 			break
 		}
@@ -110,17 +110,22 @@ func main() {
 			//fmt.Println("最高价为本人，不出价")
 			continue
 		}
+		//bidPrice(ret.CurrentPrice + addPrice)
 		if remainTime < 10 {
 			sleepTime = time.Second
+			continue
+		}
+		if remainTime < 3 {
+			sleepTime = time.Millisecond * 500
 			bidPrice(ret.CurrentPrice + addPrice)
 		}
-		if remainTime < 2 {
+		if remainTime < 1 {
 			isSleep = false
 			price := ret.CurrentPrice + addPrice
 			for price < maxPrice {
 				go bidPrice(price)
 				price += addPrice
-				time.Sleep(time.Millisecond * 2)
+				time.Sleep(time.Millisecond * 5)
 			}
 		}
 	}
