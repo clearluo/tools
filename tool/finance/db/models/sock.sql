@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS `history` (
   KEY `dayTime` (`day_time`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=105 DEFAULT CHARSET=utf8 COMMENT='回溯历史上优秀的股票';
 
--- 正在导出表  stock.history 的数据：~101 rows (大约)
+-- 正在导出表  stock.history 的数据：~104 rows (大约)
 /*!40000 ALTER TABLE `history` DISABLE KEYS */;
 INSERT INTO `history` (`id`, `code`, `name`, `day_time`, `typ`, `price`, `dividend`, `share_per`, `money_per`, `buy_price`) VALUES
 	(1, 600519, '贵州茅台', 20010827, 0, 35.55, '无', 0, 0, 0),
@@ -147,18 +147,17 @@ INSERT INTO `history` (`id`, `code`, `name`, `day_time`, `typ`, `price`, `divide
 DROP TABLE IF EXISTS `invest`;
 CREATE TABLE IF NOT EXISTS `invest` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `month_date` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '年月',
+  `month_time` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '年月',
   `capital` double unsigned NOT NULL DEFAULT '0' COMMENT '当月本金',
   `profit` double NOT NULL DEFAULT '0',
   `uid` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
-  KEY `month` (`month_date`) USING BTREE,
   KEY `uid` (`uid`)
 ) ENGINE=MyISAM AUTO_INCREMENT=50 DEFAULT CHARSET=utf8;
 
 -- 正在导出表  stock.invest 的数据：49 rows
 /*!40000 ALTER TABLE `invest` DISABLE KEYS */;
-INSERT INTO `invest` (`id`, `month_date`, `capital`, `profit`, `uid`) VALUES
+INSERT INTO `invest` (`id`, `month_time`, `capital`, `profit`, `uid`) VALUES
 	(1, 201608, 4288, 892.1, 1),
 	(2, 201609, 17088, -125.9, 1),
 	(3, 201610, 32338, -1934.4, 1),
@@ -209,27 +208,6 @@ INSERT INTO `invest` (`id`, `month_date`, `capital`, `profit`, `uid`) VALUES
 	(48, 202007, 476305, 25766.63, 1),
 	(49, 202008, 499666, 0, 1);
 /*!40000 ALTER TABLE `invest` ENABLE KEYS */;
-
--- 导出  表 stock.year_rate 结构
-DROP TABLE IF EXISTS `year_rate`;
-CREATE TABLE IF NOT EXISTS `year_rate` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `year_date` int(11) unsigned NOT NULL DEFAULT '0',
-  `profit` double NOT NULL DEFAULT '0',
-  `rate` double NOT NULL DEFAULT '0',
-  `uid` int(11) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED;
-
--- 正在导出表  stock.year_rate 的数据：5 rows
-/*!40000 ALTER TABLE `year_rate` DISABLE KEYS */;
-INSERT INTO `year_rate` (`id`, `year_date`, `profit`, `rate`, `uid`) VALUES
-	(1, 2016, -6736, -48.05, 1),
-	(2, 2017, 34031, 22.4, 1),
-	(3, 2018, -56922, -18.58, 1),
-	(4, 2019, 159139, 43.12, 1),
-	(5, 2020, -36466, -11.41, 1);
-/*!40000 ALTER TABLE `year_rate` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;

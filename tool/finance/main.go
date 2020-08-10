@@ -1,13 +1,13 @@
 package main
 
 import (
+	"errors"
 	_ "finance/db"
 	"finance/db/history"
+	"finance/db/invest"
 	"fmt"
-	"io/ioutil"
 	"math"
-	"strconv"
-	"strings"
+	"sort"
 	"time"
 )
 
@@ -16,7 +16,7 @@ func main() {
 	//Snowball(2000000, 0.10, 28)
 	//InstallmentCal(4500, 12, 385.35)
 	//AnnualYield(5000000, 10000000000, 25)
-	YearRate()
+	YearRate(1)
 	//Retire(500000000, 0.15, 0.04)
 	//History(1000000, 601318, 20080808, false)
 }
@@ -162,46 +162,63 @@ func AnnualYield(startMoney float64, endMoney float64, yearCount int) float64 {
 	return 0
 }
 
-func YearRate() float64 {
-	readContext, err := ioutil.ReadFile("data.txt")
+type YearDetail struct {
+	Year           int       // 年份
+	PrincipalTotal []float64 // 年度每个月的本金
+	ProfitTotal    float64   // 年度利润总和
+	Rate           float64
+}
+
+func YearRate(uid int) {
+	allData := map[int]*YearDetail{}
+	var AllPrincipalTotal []float64 // 每个月份的本金
+	var AllProfitTotal float64      // 盈利总和
+	investSli, err := invest.GetInvestByUid(uid)
 	if err != nil {
 		fmt.Println(err)
-		return 0
+		return
 	}
-	lineSli := strings.Split(string(readContext), "\n")
-	var principalTotal []float64
-	var profitTotal float64
-	for _, line := range lineSli {
-		if len(line) < 3 || strings.HasPrefix(line, "#") {
-			continue
-		}
-		line = strings.Trim(line, "\r")
-		line = strings.Trim(line, " ")
-		rowSli := strings.Split(line, ":")
-		if len(rowSli) != 3 {
-			fmt.Println("len(rowSli)!=3:", line)
-			continue
-		}
-		rowSli[1] = strings.Trim(rowSli[1], " ")
-		profitTmp, err := strconv.ParseFloat(rowSli[1], 64)
-		if err != nil {
-			fmt.Println("strconv.ParseFloat err:", rowSli[1])
-			return 0
-		}
-		profitTotal += profitTmp
-		principalSli := strings.Split(rowSli[2], ",")
-		for _, v := range principalSli {
-			v = strings.Trim(v, " ")
-			principalTmp, err := strconv.ParseFloat(v, 64)
-			if err != nil {
-				fmt.Println("strconv.ParseFloat err:", v)
-				return 0
+	var year int
+	yearSli := []int{}
+	for _, row := range investSli {
+		year = row.MonthTime / 100
+		yearDeatil, ok := allData[year]
+		if !ok {
+			yearDeatil = &YearDetail{
+				Year: year,
 			}
-			principalTotal = append(principalTotal, principalTmp)
+			allData[year] = yearDeatil
+			yearSli = append(yearSli, year)
+		}
+		yearDeatil.PrincipalTotal = append(yearDeatil.PrincipalTotal, row.Capital)
+		yearDeatil.ProfitTotal += row.Profit
+		AllPrincipalTotal = append(AllPrincipalTotal, row.Capital)
+		AllProfitTotal += row.Profit
+	}
+	sort.Ints(yearSli)
+	for _, year := range yearSli {
+		item, ok := allData[year]
+		if !ok {
+			fmt.Println("not ok")
+			continue
+		}
+		if rate, err := calRateByMonth(item.PrincipalTotal, item.ProfitTotal); err != nil {
+			fmt.Println(err)
+		} else {
+			fmt.Printf("%v年收益: %6.2fW  年化收益: %6.2f%%\n", item.Year, item.ProfitTotal/10000, rate*100)
 		}
 	}
-	var rate float64
-	for rate = -0.9; rate < 1; rate += 0.00001 {
+	if rate, err := calRateByMonth(AllPrincipalTotal, AllProfitTotal); err != nil {
+		fmt.Println(err)
+	} else {
+		fmt.Printf("历史总收益: %6.2fW  年化收益: %6.2f%%\n", AllProfitTotal/10000, rate*100)
+	}
+	return
+}
+
+// 根据月份本金和总利润计算年化收益率
+func calRateByMonth(principalTotal []float64, profitTotal float64) (rate float64, err error) {
+	for rate = -1.5; rate < 3; rate += 0.00001 {
 		monthRate := rate / 12
 		sumProfit := 0.0
 		for _, v := range principalTotal {
@@ -209,12 +226,11 @@ func YearRate() float64 {
 		}
 		tmp := math.Abs(sumProfit - profitTotal)
 		if tmp < 100 {
-			fmt.Printf("total: %.2fW yearRate: %.2f%%\n", profitTotal/10000, rate*100)
-			return rate
+			//fmt.Printf("total: %.2fW yearRate: %.2f%%\n", profitTotal/10000, rate*100)
+			return rate, nil
 		}
 	}
-	fmt.Println("cal err")
-	return 0
+	return 0, errors.New("cal err")
 }
 
 func Retire(base float64, rate float64, useRate float64) {
