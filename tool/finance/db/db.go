@@ -37,7 +37,7 @@ func init() {
 		err = fmt.Errorf("xorm ping err:%v", err)
 		fmt.Println(err)
 		fmt.Println(err)
-		panic(err)
+		//panic(err)
 	}
 
 }
