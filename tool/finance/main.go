@@ -16,7 +16,7 @@ func main() {
 	//Snowball(2000000, 0.10, 28)
 	//InstallmentCal(4500, 12, 385.35)
 	//AnnualYield(5000000, 10000000000, 25)
-	YearRate(1)
+	YearRate(1314)
 	//Retire(500000000, 0.15, 0.04)
 	//History(1000000, 601318, 20080808, false)
 }
