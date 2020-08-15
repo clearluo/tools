@@ -1,4 +1,6 @@
 ./.idea
 *.exe
 finance/gp.xlsx
+./dbd/dbd
+./finance/finance
 
