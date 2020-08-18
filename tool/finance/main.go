@@ -3,7 +3,6 @@ package main
 import (
 	"errors"
 	"finance/common/basic/runBefore"
-	_ "finance/db"
 	"finance/db/history"
 	"finance/db/invest"
 	"fmt"
