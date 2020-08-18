@@ -2,6 +2,7 @@ package main
 
 import (
 	"errors"
+	"finance/common/basic/runBefore"
 	_ "finance/db"
 	"finance/db/history"
 	"finance/db/invest"
@@ -11,6 +12,9 @@ import (
 	"time"
 )
 
+func init() {
+	runBefore.InitRun()
+}
 func main() {
 	//Etf(0, 505, 0.00, 10, 0.33)
 	//Snowball(2000000, 0.10, 28)

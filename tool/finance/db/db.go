@@ -1,6 +1,7 @@
 package db
 
 import (
+	"finance/common/basic"
 	"fmt"
 	"time"
 
@@ -12,15 +13,10 @@ var (
 	appDb *xorm.Engine
 )
 
-const (
-	secret = "root:123456"
-	url    = "127.0.0.1:3306"
-	db     = "stock"
-)
-
-func init() {
+func InitMySql() {
 	var err error
-	dataSource := fmt.Sprintf("%v@tcp(%v)/%v?charset=utf8&loc=Local", secret, url, db)
+	dataSource := fmt.Sprintf("%v:%v@tcp(%v:%v)/%v?charset=utf8&loc=Local",
+		basic.MysqlApp.User, basic.MysqlApp.Password, basic.MysqlApp.Host, basic.MysqlApp.Port, basic.MysqlApp.Database)
 	appDb, err = xorm.NewEngine("mysql", dataSource)
 	if err != nil {
 		err = fmt.Errorf("xorm.NewEngine err:%v", err)
