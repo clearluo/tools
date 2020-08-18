@@ -1,27 +1,27 @@
-package main
+package finance
 
 import (
 	"errors"
-	"finance/common/basic/runBefore"
-	"finance/db/history"
-	"finance/db/invest"
 	"fmt"
 	"math"
 	"sort"
 	"time"
+	"tool/common/basic/runBefore"
+	"tool/common/db/history"
+	"tool/common/db/invest"
 )
 
 func init() {
 	runBefore.InitRun()
 }
-func main() {
+func Finance() {
 	//Etf(0, 505, 0.00, 10, 0.33)
 	//Snowball(2000000, 0.10, 28)
 	//InstallmentCal(4500, 12, 385.35)
 	//AnnualYield(5000000, 10000000000, 25)
-	YearRate(1314)
-	//Retire(500000000, 0.15, 0.04)
-	//History(1000000, 601318, 20080808, false)
+	//YearRate(1)
+	//Retire(1000000000, 0.15, 0.04)
+	History(1000000, 2, 19910129, true)
 }
 func History(startMoney float64, code int, startTime int, isJoin bool) {
 	// 600519 贵州茅台-20010827

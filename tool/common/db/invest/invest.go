@@ -1,6 +1,6 @@
 package invest
 
-import "finance/db"
+import "tool/common/db"
 
 type Invest struct {
 	Id        int     `xorm:"not null pk autoincr INT(11)"`

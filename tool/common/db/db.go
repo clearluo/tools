@@ -1,9 +1,9 @@
 package db
 
 import (
-	"finance/common/basic"
 	"fmt"
 	"time"
+	"tool/common/basic"
 
 	_ "github.com/go-sql-driver/mysql"
 	"xorm.io/xorm"

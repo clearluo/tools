@@ -1,8 +1,8 @@
 package runBefore
 
 import (
-	"finance/common/basic"
-	"finance/db"
+	"tool/common/basic"
+	"tool/common/db"
 )
 
 func InitRun() {

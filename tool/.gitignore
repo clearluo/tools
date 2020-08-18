@@ -1,6 +1,3 @@
 ./.idea
 *.exe
-finance/gp.xlsx
-/finance/finance
-/finance/config/*
-/dbd/dbd
+/config/*

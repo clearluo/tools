@@ -1,9 +1,9 @@
 package basic
 
 import (
-	"finance/common/log"
 	"os"
 	"path/filepath"
+	"tool/common/log"
 
 	ini "gopkg.in/ini.v1"
 )
@@ -23,6 +23,16 @@ type RedisType struct {
 	Port     string
 }
 
+type DbdType struct {
+	UserId   string
+	Id       string
+	Name     string
+	MaxPrice float64
+	AddPrice float64
+	Token    string
+	Cookie   string
+}
+
 type AppType struct {
 	Port    string
 	RpcPort string
@@ -40,6 +50,7 @@ var (
 	App      AppType
 	Path     PathType
 	Redis    RedisType
+	Dbd      DbdType
 )
 
 func init() {
@@ -72,6 +83,13 @@ func initIni() {
 	MysqlApp.Host = cfg.Section("mysqlApp").Key("host").String()
 	MysqlApp.Port = cfg.Section("mysqlApp").Key("port").String()
 	MysqlApp.Database = cfg.Section("mysqlApp").Key("database").String()
+	Dbd.Cookie = cfg.Section("dbd").Key("cookie").String()
+	Dbd.Token = cfg.Section("dbd").Key("token").String()
+	Dbd.UserId = cfg.Section("dbd").Key("userId").String()
+	Dbd.Id = cfg.Section("dbd").Key("id").String()
+	Dbd.Name = cfg.Section("dbd").Key("name").String()
+	Dbd.MaxPrice, _ = cfg.Section("dbd").Key("maxPrice").Float64()
+	Dbd.AddPrice, _ = cfg.Section("dbd").Key("addPrice").Float64()
 	checkIni()
 }
 

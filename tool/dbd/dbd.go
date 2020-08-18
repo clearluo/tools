@@ -1,4 +1,4 @@
-package main
+package dbd
 
 import (
 	"encoding/json"
@@ -8,6 +8,7 @@ import (
 	"net/url"
 	"strings"
 	"time"
+	"tool/common/basic"
 )
 
 type Ret struct {
@@ -33,14 +34,14 @@ type Data struct {
 	//UserNum           interface{} `json:"userNum"`
 }
 
-const (
-	userId   = "t***w"
-	id       = "226257630"
-	name     = "wifi放大器"
-	maxPrice = 26
-	addPrice = 1 // 加价间隔
-	cookie   = "unpl=V2_ZzNtbUsAFhBxWEZdfEsJUWIBEg1LUENCcVhCVygcDlJmBEZfclRCFnQUR11nGV0UZwAZXUFcRxRFCEdkexhdBGYCEFpBU3NMJVZGV3lFFzVXABJtQlZzFXEAQFV5GloDZgMbX0tVQxV9CE9SeilsAlczIlxyVnMURUMoVTYZWA1hAhBeRFFCFXwKT1Z7GVQFbgUTbUNnQA%3d%3d; __jdv=76161171|www.hao123.com|t_1000003625_hao123mz|tuiguang|8fd45a186cde431a861f5a52b4cf06e3|1597032770776; __jdu=1597032770183831191870; areaId=16; ipLoc-djd=16-1303-3484-0; PCSYCityID=CN_350000_350100_350102; shshshfpa=21c228a4-ce59-2efe-bcdf-707d4eb77027-1597032772; shshshfpb=wS54E7rGhryotayEdEKpyKg%3D%3D; 3AB9D23F7A4B3C9B=LLYWXM24PGCI2ZS6DR2JLHX57NF4PD3ONXFO3UOJ2RRB3CUCMRQOMLKU34JIGJBCPWINTPWL5DXCFU4QIFPZBJP7CU; cid=NXpVMzUyNm9SNzUwN3dMMDcwOHRBNzE4MXhOMjEyMnhHNzc0M2NSMzcyNHlUNTk4; shshshfp=f29d17d857ae68206626f19fb892a433; pinId=O6R_B8s_J3E; pin=tolsw; unick=%E6%B0%91%E9%97%B4%E5%8D%97%E5%AF%92%E5%B8%A6; _tp=gqQK%2Btk9D0R7L9OT%2B7S%2Bsw%3D%3D; _pst=tolsw; __tak=46a8344fbc7a53adaa9336865bab68cff1e2d43aca76908876cd2900616cd2642570fc50ec6feeba8b88334f55dcbcc6034a810adbb7eeabc660eac43b84f91e9868217088bc885f0d53b00023f5a5f4; wlfstk_smdl=wyg4xgmpzgyqdqaraqeqkmhrv5l9kuhg; TrackID=1yg20uMgEGQALk2RWOiloFbRSN_cP8Ire2SeyGK5L3ZmYi99quXvDHpBZWYEARbn-9Wk75juGhR95F0TixbvtK-hjIz_ilk6wi-nI2kUghcc; thor=A6CD0F6C27D13A138EBD4D18B8A97E3C97149A1EF040FE64E7FFA5549429A7C8061222A42FC46CC7773C939E196F496C9142EC377AEB03D71BC898A556E909E08D11DD2D392BF96F5B131375B83BD2C98402A2FAB4224DB736F7AD70A690E7E6920D8E8D266F16934F2FECD9A3CB9140765EB226C166BF1481BE572AA5040680; ceshi3.com=201; logining=1; __jda=148612534.1597032770183831191870.1597032770.1597290215.1597627704.7; __jdc=148612534; __jdb=148612534.6.1597032770183831191870|7.1597627704"
-	token    = "504azbc1mc1sdzz84re15976277037347sp4~NmZeSyVEbFNSdH56clNaBXlyBwpoRHpTBiUjb35DFm5vLUROOBEzLUF7G28iAAFBKBgVFA1EPwIVKDclGENXbm8iVlQiAwpTTx1lKSsTCG5vfmsaZFFgQlMdZWEYQwtub35rGjcEYEUCInd5IFZcUXshAgtlVDNBB3ByeSECWFB/JQZaNB8gFz9jaxFmCB5fEWYNZHMANx0QJBtvaD1PWj4waxprOnQBAig3LC1PB1ZjJ1hVDUR6LUExKRFmWzEQYiVCWyUPOR9OJSI5JQgBHX92AQpkUWBCUx1lYRhDHUYRZg1kcw4iBRMyfRFmTTEQPS1rGms6dENRbXBhck1dHn1oAAANRCtTT2MiKSASChB3ZlxKO1Z0XUEiNG9+QwpGLHxASWQVbxwHKyIiKQkaRXpyX1A4Hi9HGjt2On0OHlAiJRUUcwV0S0F0Kzt9VRkGfy5PUWYTZAMaNDYmdVRUBX1wDw9mXmFFWzQsOSZDQRApN1kaa0Q8GVYjci89Vk8eby1EGmtEZ1NPYy0kJ0NXEHR9Dg9zGw==|~1597627747813~1~20200318~eyJ2aXdlIjoiMCIsImJhaW4iOnsiaWMiOiIxIiwibGUiOiIxMDAiLCJjdCI6IjAiLCJkdCI6ImkifX0=~2~311~uii7|1d2s-f0,fq,f0,fr;1d3-ez,fs,ez,fs;1dr-ey,fx,ey,fx;1d3g-f7,ea,f7,f;1da-f7,ds,f7,3j;1da-f7,dl,f7,21;1de-f7,d6,f7,1l;1dj-f7,cp,f7,15;1d6-f7,cm,f7,11;1d1t-f4,bn,f5,3;1dp-f3,bk,f3,0;1d20-es,b2,el,3y;1db-ek,at,ee,3p;1d8-ee,am,e7,3j;1d8-ec,aj,e5,3g;1de-e2,aa,dv,37;1d9-dv,a1,do,2x;1d1h-cs,8y,4k,1f;1db-cl,8u,4e,1c;1de-ck,8u,4d,1c;1dr-ck,8w,4d,1d;1dc-ck,91,4d,1i;1dc-co,9e,4g,8;1d6-cp,9j,4i,d;1d1q-di,bq,i,q;1d2n-es,dk,8,8;1d2p-et,dj,a,7;1dd-eu,di,a,5;1dp-ev,di,b,5;1d2m-ex,dh,e,4;1d1m-f6,dl,m,8;1d2x-g4,f1,1m,l;1d2n-gm,g8,3m,58;1d2o-gj,gk,39,b;bd8a-gf,gu,35,k;doei:,1,1,0,0,1,1000,-1000,1000,-1000;dmei:,1,1,1,1000,-1000,1000,-1000,1000,-1000;emc:,d:78;emmm:,d:37-0;emcf:,d:78;ivli:;iivl:;ivcvj:;scvje:;ewhi:;1597627746025,1597627747812,0,0,35,35,0,44,0,0,0;b7v5"
+var (
+	userId   string  // "t***w"
+	id       string  // "226257630"
+	name     string  // "wifi放大器"
+	maxPrice float64 // 26
+	addPrice float64 // 1 // 加价间隔
+	cookie   string  // ""
+	token    string  // ""
 )
 
 var (
@@ -52,7 +53,14 @@ var (
 	priceUrlStr = ""
 )
 
-func init() {
+func initDbd() {
+	userId = basic.Dbd.UserId
+	id = basic.Dbd.Id
+	name = basic.Dbd.Name
+	maxPrice = basic.Dbd.MaxPrice
+	addPrice = basic.Dbd.AddPrice
+	token = basic.Dbd.Token
+	cookie = basic.Dbd.Cookie
 	quryApiUrl := "https://used-api.jd.com/auctionRecord/getCurrentAndOfferNum?auctionId=" + id //+ "&callback=__jp17"
 	data := url.Values{}
 	uTmp, _ := url.ParseRequestURI(quryApiUrl)
@@ -84,7 +92,8 @@ func init() {
 
 }
 
-func main() {
+func Dbd() {
+	initDbd()
 	isSleep := true
 	sleepTime := time.Second * 5
 	for {

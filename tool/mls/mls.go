@@ -1,4 +1,4 @@
-package main
+package mls
 
 import (
 	"encoding/json"
@@ -8,9 +8,7 @@ import (
 	"net/url"
 	"strconv"
 	"strings"
-
-	"github.com/astaxie/beego/orm"
-	_ "github.com/go-sql-driver/mysql"
+	"tool/common/db"
 )
 
 type Ret struct {
@@ -40,25 +38,9 @@ type ScoreUserSc struct {
 
 var str = "曾,赵,钱,孙,李,周,吴,郑,王,冯,陈,蒋,沈,韩,杨,朱,秦,尤,许,何,吕,张,郭,林,孔,曹,严,魏,陶,姜,谢,邹,苏,潘,范,彭,韦,马,方,俞,任,袁,柳,鲍,史,唐,薛,雷,倪,汤,罗,安,常,于,傅,伍,余,孟,黄,萧,尹,姚,邵,汪,毛,戴,宋,熊,纪,项,祝,董,梁,杜,阮,季,江,颜,刁,钟,徐,邱,高,夏,蔡,胡,万,柯,管,卢,莫,应,丁,邓,洪,石,崔,龚,邢,陆,伊,宁,甘,刘,詹,叶,白,赖,卓,温,庄,连,习,易,廖,巩,聂,关,游,上官,欧阳"
 var baijia []string
-var o orm.Ormer
 var sql = "INSERT INTO user(bib,name,netScore,netScoreRank,sex,data)VALUES(?,?,?,?,?,?)"
 
-func init() {
-	user := "root"
-	passwd := "123456"
-	host := "127.0.0.1"
-	port := "3306"
-	database := "stock"
-	dataSource := user + ":" + passwd + "@tcp(" + host + ":" +
-		port + ")/" + database + "?charset=utf8"
-	orm.RegisterDataBase("default", "mysql", dataSource)
-
-	orm.SetMaxIdleConns("default", 100)
-	orm.SetMaxOpenConns("default", 200)
-}
-
-func main() {
-	o = orm.NewOrm()
+func Mls() {
 	baijia = strings.Split(str, ",")
 	//bib := "C62102"
 	//C62000-63145
@@ -119,8 +101,8 @@ func sendPost(bib string, name string, no int) bool {
 	userInfo := ret.Data[0].ScoreUserSc
 	dataByte, _ := json.Marshal(userInfo)
 	fmt.Printf("%-10v%-10v%-10v%-10v\n", userInfo.Bib, userInfo.Name, userInfo.NetScoreRank, userInfo.NetScore)
-	if _, err := o.Raw(sql, userInfo.Bib, userInfo.Name, userInfo.NetScore, userInfo.NetScoreRank,
-		userInfo.Sex, string(dataByte)).Exec(); err != nil {
+	if _, err := db.GetAppDb().Exec(sql, userInfo.Bib, userInfo.Name, userInfo.NetScore, userInfo.NetScoreRank,
+		userInfo.Sex, string(dataByte)); err != nil {
 		fmt.Println(err)
 	}
 	return true
