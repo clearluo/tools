@@ -19,9 +19,9 @@ func Finance() {
 	//Snowball(2000000, 0.10, 28)
 	//InstallmentCal(4500, 12, 385.35)
 	//AnnualYield(5000000, 10000000000, 25)
-	//YearRate(1)
+	YearRate(1)
 	//Retire(1000000000, 0.15, 0.04)
-	History(1000000, 2, 19910129, true)
+	//History(1000000, 2, 19910129, true)
 }
 func History(startMoney float64, code int, startTime int, isJoin bool) {
 	// 600519 贵州茅台-20010827
@@ -208,13 +208,13 @@ func YearRate(uid int) {
 		if rate, err := calRateByMonth(item.PrincipalTotal, item.ProfitTotal); err != nil {
 			fmt.Println(err)
 		} else {
-			fmt.Printf("%v年收益: %6.2fW  年化收益: %6.2f%%\n", item.Year, item.ProfitTotal/10000, rate*100)
+			fmt.Printf("%v年化收益率: %6.2f%%  年收益:%6.2fW\n", item.Year, rate*100, item.ProfitTotal/10000)
 		}
 	}
 	if rate, err := calRateByMonth(AllPrincipalTotal, AllProfitTotal); err != nil {
 		fmt.Println(err)
 	} else {
-		fmt.Printf("历史总收益: %6.2fW  年化收益: %6.2f%%\n", AllProfitTotal/10000, rate*100)
+		fmt.Printf("复合年化收益率: %6.2f%%  总收益:%6.2fW\n", rate*100, AllProfitTotal/10000)
 	}
 	return
 }
