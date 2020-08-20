@@ -119,7 +119,7 @@ func Dbd() {
 			//fmt.Println("最高价为本人，不出价")
 			continue
 		}
-		if remainTime < 3 {
+		if remainTime < 1 {
 			bidPrice(ret.CurrentPrice + addPrice)
 		}
 		//bidPrice(ret.CurrentPrice + addPrice)
@@ -132,7 +132,7 @@ func Dbd() {
 			isSleep = false
 		}
 
-		if remainTime < 0.5 {
+		if remainTime < 0.3 {
 			//isSleep = false
 			price := ret.CurrentPrice + addPrice
 			for price < maxPrice {
