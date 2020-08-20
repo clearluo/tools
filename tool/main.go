@@ -2,7 +2,7 @@ package main
 
 import (
 	"tool/common/basic/runBefore"
-	"tool/finance"
+	"tool/dbd"
 )
 
 func init() {
@@ -10,6 +10,6 @@ func init() {
 }
 
 func main() {
-	//dbd.Dbd()
-	finance.Finance()
+	dbd.Dbd()
+	//finance.Finance()
 }

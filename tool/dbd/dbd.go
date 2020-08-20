@@ -119,22 +119,26 @@ func Dbd() {
 			//fmt.Println("最高价为本人，不出价")
 			continue
 		}
-		//bidPrice(ret.CurrentPrice + addPrice)
-		if remainTime < 10 {
-			sleepTime = time.Second
-			continue
-		}
 		if remainTime < 3 {
-			sleepTime = time.Millisecond * 500
 			bidPrice(ret.CurrentPrice + addPrice)
 		}
-		if remainTime < 1 {
+		//bidPrice(ret.CurrentPrice + addPrice)
+		if remainTime < 10 && sleepTime > time.Second {
+			sleepTime = time.Second
+		}
+		if remainTime < 3 && sleepTime >= time.Second {
+			//bidPrice(ret.CurrentPrice + addPrice)
+			//sleepTime = time.Millisecond * 200
 			isSleep = false
+		}
+
+		if remainTime < 0.5 {
+			//isSleep = false
 			price := ret.CurrentPrice + addPrice
 			for price < maxPrice {
 				go bidPrice(price)
 				price += addPrice
-				time.Sleep(time.Millisecond * 5)
+				time.Sleep(time.Millisecond * 3)
 			}
 		}
 	}
