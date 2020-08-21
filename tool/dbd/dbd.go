@@ -96,6 +96,7 @@ func Dbd() {
 	initDbd()
 	isSleep := true
 	sleepTime := time.Second * 5
+	offerPrice := 0.0
 	for {
 		if isSleep {
 			time.Sleep(sleepTime)
@@ -120,7 +121,11 @@ func Dbd() {
 			continue
 		}
 		if remainTime < 1 {
-			bidPrice(ret.CurrentPrice + addPrice)
+			offerPrice = ret.CurrentPrice + addPrice
+			if offerPrice > maxPrice {
+				offerPrice = maxPrice
+			}
+			bidPrice(offerPrice)
 		}
 		//bidPrice(ret.CurrentPrice + addPrice)
 		if remainTime < 10 && sleepTime > time.Second {
@@ -132,15 +137,15 @@ func Dbd() {
 			isSleep = false
 		}
 
-		if remainTime < 0.3 {
-			//isSleep = false
-			price := ret.CurrentPrice + addPrice
-			for price < maxPrice {
-				go bidPrice(price)
-				price += addPrice
-				time.Sleep(time.Millisecond * 3)
-			}
-		}
+		//if remainTime < 0.3 {
+		//	//isSleep = false
+		//	price := ret.CurrentPrice + addPrice
+		//	for price < maxPrice {
+		//		go bidPrice(price)
+		//		price += addPrice
+		//		time.Sleep(time.Millisecond * 3)
+		//	}
+		//}
 	}
 	if ret, err := getPrice(); err != nil {
 		fmt.Println("竞拍失败")
@@ -152,7 +157,7 @@ func Dbd() {
 			fmt.Printf("竞拍结束，当前价超出你能接受的最高价，当前价:%v\n", ret.CurrentPrice)
 		}
 	}
-	select {}
+	//select {}
 }
 
 func getPrice() (*Data, error) {
