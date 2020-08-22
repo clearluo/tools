@@ -17,7 +17,7 @@ type History struct {
 
 func GetHistoryByCodeAndTime(code int, startTime int) ([]*History, error) {
 	rows := []*History{}
-	sql := `SELECT * FROM history WHERE code=? AND day_time>=? ORDER BY day_time`
+	sql := `SELECT * FROM history WHERE code=? AND day_time>=? ORDER BY day_time,typ`
 	err := db.GetAppDb().SQL(sql, code, startTime).Find(&rows)
 	return rows, err
 }
