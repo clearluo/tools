@@ -21,7 +21,7 @@ func Finance() {
 	//AnnualYield(5000000, 10000000000, 25)
 	//YearRate(1)
 	//Retire(1000000000, 0.15, 0.04)
-	History(1000000, 600660, 19930610, true)
+	History(1000000, 600177, 19981119, true)
 }
 func History(startMoney float64, code int, startTime int, isJoin bool) {
 	// 600519 贵州茅台-20010827
@@ -31,6 +31,8 @@ func History(startMoney float64, code int, startTime int, isJoin bool) {
 	// 601166 兴业银行-20070205
 	// 000001 平安银行-19910403
 	// 600660 福耀玻璃-19930610
+	// 000333 美的集团-20130918
+	// 600177 雅戈尔-19981119
 	rows, err := history.GetHistoryByCodeAndTime(code, startTime)
 	if err != nil || len(rows) < 1 {
 		fmt.Println(err, " or rows is null")
