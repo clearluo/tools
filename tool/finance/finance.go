@@ -21,7 +21,7 @@ func Finance() {
 	//AnnualYield(5000000, 10000000000, 25)
 	//YearRate(1)
 	//Retire(1000000000, 0.15, 0.04)
-	History(1000000, 1, 19910403, true)
+	History(1000000, 600660, 19930610, true)
 }
 func History(startMoney float64, code int, startTime int, isJoin bool) {
 	// 600519 贵州茅台-20010827
@@ -30,12 +30,13 @@ func History(startMoney float64, code int, startTime int, isJoin bool) {
 	// 600036 招商银行-20020409
 	// 601166 兴业银行-20070205
 	// 000001 平安银行-19910403
+	// 600660 福耀玻璃-19930610
 	rows, err := history.GetHistoryByCodeAndTime(code, startTime)
 	if err != nil || len(rows) < 1 {
 		fmt.Println(err, " or rows is null")
 		return
 	}
-	fmt.Printf("自%v开始买入%vW的%v股票，每年分红当天以收盘价分红投入，历史收益明细\n", startTime, startMoney/10000, rows[0].Name)
+	fmt.Printf("自%v上市首日收盘价买入%vW的%v股票，每年分红当天以收盘价分红投入，历史收益明细\n", startTime, startMoney/10000, rows[0].Name)
 
 	var sumMoney float64 = startMoney // 总市值
 	var sumShare float64              // 总股数
@@ -55,7 +56,7 @@ func History(startMoney float64, code int, startTime int, isJoin bool) {
 				fmt.Printf("%v不参与增发配售\n", row.DayTime)
 				continue
 			}
-			title = fmt.Sprintf("%v-融资", row.DayTime)
+			title = fmt.Sprintf("%v-配股", row.DayTime)
 			tmpSumMoney := sumMoney
 			addShare := sumShare * row.SharePer
 			costMoney := addShare * row.BuyPrice
